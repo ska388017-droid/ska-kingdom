@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>SKA Kingdom</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color:transparent;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#0b0f14;
+  color:#fff;
+  min-height:100vh;
+}
+
+.app{
+  max-width:520px;
+  margin:auto;
+  min-height:100vh;
+  background:linear-gradient(180deg,#111923,#080b10);
+  padding-bottom:80px;
+}
+
+.header{
+  padding:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#111820;
+  border-bottom:1px solid #26313c;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-icon{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#f5b400,#7a4300);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+}
+
+.logo h1{
+  font-size:20px;
+}
+
+.logo small{
+  color:#8895a3;
+}
+
+.balance{
+  text-align:right;
+}
+
+.balance span{
+  display:block;
+  color:#f7c948;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.balance small{
+  color:#8e9aa7;
+}
+
+.card{
+  margin:16px;
+  padding:18px;
+  border-radius:18px;
+  background:#151e28;
+  border:1px solid #293542;
+  box-shadow:0 8px 30px #0005;
+}
+
+.kingdom{
+  text-align:center;
+  padding:25px 15px;
+}
+
+.kingdom h2{
+  font-size:25px;
+  margin-bottom:7px;
+}
+
+.kingdom p{
+  color:#8794a2;
+}
+
+.mine-area{
+  margin-top:20px;
+  height:230px;
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 50% 35%,#304252,#121920 55%,#080b0e);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #354554;
+}
+
+.tree{
+  font-size:95px;
+  cursor:pointer;
+  user-select:none;
+  transition:.12s;
+}
+
+.tree:active{
+  transform:scale(.9) rotate(-4deg);
+}
+
+.mine-btn{
+  margin-top:12px;
+  border:0;
+  border-radius:12px;
+  padding:13px 28px;
+  background:#d99018;
+  color:#fff;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.progress{
+  margin-top:18px;
+}
+
+.progress-title{
+  display:flex;
+  justify-content:space-between;
+  color:#a9b4bf;
+  font-size:13px;
+  margin-bottom:7px;
+}
+
+.bar{
+  height:9px;
+  background:#27313a;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#f4b51b,#ffda65);
+}
+
+.section-title{
+  margin-bottom:14px;
+  font-size:18px;
+}
+
+.tools{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.tool{
+  background:#10171e;
+  border:1px solid #2b3844;
+  border-radius:15px;
+  padding:15px;
+}
+
+.tool-icon{
+  font-size:42px;
+  text-align:center;
+  margin-bottom:8px;
+}
+
+.tool h3{
+  text-align:center;
+  font-size:15px;
+}
+
+.tool p{
+  text-align:center;
+  color:#8895a3;
+  font-size:12px;
+  margin:5px 0 10px;
+}
+
+.tool button{
+  width:100%;
+  padding:10px;
+  border:0;
+  border-radius:9px;
+  background:#315c86;
+  color:#fff;
+  font-weight:bold;
+}
+
+.tool button:disabled{
+  background:#303940;
+  color:#78838c;
+}
+
+.resources{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.resource{
+  padding:14px;
+  background:#10171e;
+  border:1px solid #293642;
+  border-radius:14px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.resource span:first-child{
+  color:#aeb8c2;
+}
+
+.resource span:last-child{
+  color:#f5c34b;
+  font-weight:bold;
+}
+
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  max-width:520px;
+  margin:auto;
+  height:65px;
+  background:#111820;
+  border-top:1px solid #293540;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:10;
+}
+
+.nav button{
+  border:0;
+  background:none;
+  color:#7e8b98;
+  font-size:11px;
+}
+
+.nav button.active{
+  color:#f5c34b;
+}
+
+.nav-icon{
+  display:block;
+  font-size:22px;
+  margin-bottom:3px;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:82px;
+  transform:translateX(-50%);
+  background:#202b35;
+  padding:12px 18px;
+  border-radius:12px;
+  border:1px solid #3a4956;
+  display:none;
+  z-index:20;
+}
+
+.loading{
+  position:fixed;
+  inset:0;
+  background:#080b10;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+}
+
+.loading-box{
+  text-align:center;
+}
+
+.loading-box div{
+  font-size:55px;
+  margin-bottom:15px;
+}
+
+.loading-box p{
+  color:#8d99a5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="loading" id="loading">
+  <div class="loading-box">
+    <div>⛏️</div>
+    <h2>SKA Kingdom</h2>
+    <p>Loading Kingdom...</p>
+  </div>
+</div>
+
+<div class="app">
+
+<header class="header">
+  <div class="logo">
+    <div class="logo-icon">⛏️</div>
+    <div>
+      <h1>SKA Kingdom</h1>
+      <small id="username">Miner</small>
+    </div>
+  </div>
+
+  <div class="balance">
+    <span id="coins">0 SKA</span>
+    <small>SKA Coin</small>
+  </div>
+</header>
+
+<main>
+
+<section class="card kingdom">
+  <h2>⛏️ Kingdom Mine</h2>
+  <p>Mine • Craft • Upgrade • Trade</p>
+
+  <div class="mine-area">
+
+    <div class="tree" id="mineObject">🌳</div>
+
+    <button class="mine-btn" id="mineBtn">
+      🪓 Chop Tree
+    </button>
+
+    <div class="progress">
+      <div class="progress-title">
+        <span id="resourceName">Wood</span>
+        <span id="mineProgressText">0 / 3</span>
+      </div>
+
+      <div class="bar">
+        <div class="fill" id="progressFill"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="card">
+  <h2 class="section-title">🛠️ Tools</h2>
+
+  <div class="tools">
+
+    <div class="tool">
+      <div class="tool-icon">🪓</div>
+      <h3>Wood Axe</h3>
+      <p>Required for Wood</p>
+      <button id="axeBtn" onclick="buyTool('axe')">
+        Buy • 50 SKA
+      </button>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">⛏️</div>
+      <h3>Stone Pickaxe</h3>
+      <p>Required for Stone</p>
+      <button id="stonePickBtn" onclick="buyTool('stonePickaxe')">
+        Buy • 250 SKA
+      </button>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">⛏️</div>
+      <h3>Iron Pickaxe</h3>
+      <p>Required for Iron</p>
+      <button id="ironPickBtn" onclick="buyTool('ironPickaxe')">
+        Buy • 1,000 SKA
+      </button>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">✨</div>
+      <h3>Gold Pickaxe</h3>
+      <p>Required for Gold</p>
+      <button id="goldPickBtn" onclick="buyTool('goldPickaxe')">
+        Buy • 5,000 SKA
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<section class="card">
+  <h2 class="section-title">🎒 Inventory</h2>
+
+  <div class="resources">
+    <div class="resource">
+      <span>🪵 Wood</span>
+      <span id="wood">0</span>
+    </div>
+
+    <div class="resource">
+      <span>🪨 Stone</span>
+      <span id="stone">0</span>
+    </div>
+
+    <div class="resource">
+      <span>⛓️ Iron</span>
+      <span id="iron">0</span>
+    </div>
+
+    <div class="resource">
+      <span>🪙 Gold</span>
+      <span id="gold">0</span>
+    </div>
+
+    <div class="resource">
+      <span>💎 Diamond</span>
+      <span id="diamond">0</span>
+    </div>
+
+    <div class="resource">
+      <span>🔴 Rare</span>
+      <span id="rare">0</span>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h2 class="section-title">📊 Kingdom Level</h2>
+
+  <div class="progress-title">
+    <span>Level <b id="level">1</b></span>
+    <span id="xpText">0 / 100</span>
+  </div>
+
+  <div class="bar">
+    <div class="fill" id="xpFill"></div>
+  </div>
+</section>
+
+</main>
+
+</div>
+
+<div class="nav">
+  <button class="active">
+    <span class="nav-icon">⛏️</span>
+    Mine
+  </button>
+
+  <button onclick="showToast('Marketplace coming soon')">
+    <span class="nav-icon">🏪</span>
+    Market
+  </button>
+
+  <button onclick="showToast('Profile coming soon')">
+    <span class="nav-icon">👤</span>
+    Profile
+  </button>
+
+  <button onclick="showToast('Premium coming soon')">
+    <span class="nav-icon">👑</span>
+    Premium
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+import {
+  getAuth,
+  signInAnonymously
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
+/* ==============================
+   FIREBASE CONFIG
+   ==============================
+
+   नीचे अपना Firebase Web App config
+   Firebase Console से paste करो.
+*/
+
+const firebaseConfig = {
+
+  apiKey: "PASTE_YOUR_API_KEY",
+
+  authDomain: "ska-kingdom.firebaseapp.com",
+
+  projectId: "ska-kingdom",
+
+  storageBucket: "PASTE_YOUR_STORAGE_BUCKET",
+
+  messagingSenderId: "645990915551",
+
+  appId: "PASTE_YOUR_APP_ID",
+
+  measurementId: "PASTE_YOUR_MEASUREMENT_ID"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+const auth = getAuth(app);
+
+
+/* ==============================
+   TELEGRAM
+   ============================== */
+
+const tg = window.Telegram?.WebApp;
+
+if(tg){
+
+  tg.ready();
+  tg.expand();
+
+}
+
+
+/* ==============================
+   GAME DATA
+   ============================== */
+
+let game = {
+
+  coins: 0,
+
+  level: 1,
+
+  xp: 0,
+
+  wood: 0,
+
+  stone: 0,
+
+  iron: 0,
+
+  gold: 0,
+
+  diamond: 0,
+
+  rare: 0,
+
+  axe: false,
+
+  stonePickaxe: false,
+
+  ironPickaxe: false,
+
+  goldPickaxe: false,
+
+  mineCount: 0,
+
+  currentResource: "wood"
+
+};
+
+
+let userId = null;
+
+
+/* ==============================
+   TELEGRAM USER
+   ============================== */
+
+function getTelegramUser(){
+
+  if(
+    tg &&
+    tg.initDataUnsafe &&
+    tg.initDataUnsafe.user
+  ){
+
+    const user = tg.initDataUnsafe.user;
+
+    document.getElementById("username").textContent =
+      user.username
+      ? "@" + user.username
+      : user.first_name || "Miner";
+
+    return String(user.id);
+
+  }
+
+  return null;
+
+}
+
+
+/* ==============================
+   LOAD GAME
+   ============================== */
+
+async function loadGame(){
+
+  try{
+
+    const telegramId = getTelegramUser();
+
+    if(telegramId){
+
+      userId = "tg_" + telegramId;
+
+    }else{
+
+      const credential = await signInAnonymously(auth);
+
+      userId = credential.user.uid;
+
+    }
+
+
+    const ref = doc(db,"players",userId);
+
+    const snapshot = await getDoc(ref);
+
+    if(snapshot.exists()){
+
+      game = {
+        ...game,
+        ...snapshot.data()
+      };
+
+    }else{
+
+      await setDoc(ref,{
+
+        ...game,
+
+        createdAt: Date.now(),
+
+        lastLogin: Date.now()
+
+      });
+
+    }
+
+    updateUI();
+
+  }catch(error){
+
+    console.error(error);
+
+    showToast("Firebase connection error");
+
+  }
+
+  document.getElementById("loading").style.display="none";
+
+}
+
+
+/* ==============================
+   SAVE GAME
+   ============================== */
+
+async function saveGame(){
+
+  if(!userId) return;
+
+  try{
+
+    await setDoc(
+      doc(db,"players",userId),
+      {
+        ...game,
+        lastSave: Date.now()
+      },
+      {merge:true}
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+}
+
+
+/* ==============================
+   BUY TOOL
+   ============================== */
+
+window.buyTool = async function(tool){
+
+  let price = 0;
+
+  if(tool === "axe") price = 50;
+
+  if(tool === "stonePickaxe") price = 250;
+
+  if(tool === "ironPickaxe") price = 1000;
+
+  if(tool === "goldPickaxe") price = 5000;
+
+
+  if(game.coins < price){
+
+    showToast("Not enough SKA Coin");
+
+    return;
+
+  }
+
+
+  if(game[tool]){
+
+    showToast("Already owned");
+
+    return;
+
+  }
+
+
+  game.coins -= price;
+
+  game[tool] = true;
+
+  updateUI();
+
+  await saveGame();
+
+  showToast("Tool purchased! 🛠️");
+
+};
+
+
+/* ==============================
+   MINING
+   ============================== */
+
+document
+.getElementById("mineBtn")
+.addEventListener("click",async()=>{
+
+  if(game.currentResource === "wood"){
+
+    if(!game.axe){
+
+      showToast("Buy Axe first • 50 SKA");
+
+      return;
+
+    }
+
+    game.mineCount++;
+
+    if(game.mineCount >= 3){
+
+      game.wood += 1;
+
+      game.coins += 10;
+
+      game.xp += 10;
+
+      game.mineCount = 0;
+
+      showToast("+1 Wood • +10 SKA");
+
+    }else{
+
+      showToast(
+        "Tree chopped " +
+        game.mineCount +
+        "/3"
+      );
+
+    }
+
+  }
+
+
+  checkLevel();
+
+  updateUI();
+
+  await saveGame();
+
+});
+
+
+/* ==============================
+   LEVEL
+   ============================== */
+
+function checkLevel(){
+
+  while(game.xp >= 100){
+
+    game.xp -= 100;
+
+    game.level++;
+
+    game.coins += 50;
+
+    showToast(
+      "🎉 Level " +
+      game.level +
+      " unlocked!"
+    );
+
+  }
+
+}
+
+
+/* ==============================
+   UI
+   ============================== */
+
+function updateUI(){
+
+  document.getElementById("coins")
+  .textContent =
+  Math.floor(game.coins) + " SKA";
+
+
+  document.getElementById("level")
+  .textContent =
+  game.level;
+
+
+  document.getElementById("wood")
+  .textContent =
+  game.wood;
+
+
+  document.getElementById("stone")
+  .textContent =
+  game.stone;
+
+
+  document.getElementById("iron")
+  .textContent =
+  game.iron;
+
+
+  document.getElementById("gold")
+  .textContent =
+  game.gold;
+
+
+  document.getElementById("diamond")
+  .textContent =
+  game.diamond;
+
+
+  document.getElementById("rare")
+  .textContent =
+  game.rare;
+
+
+  document.getElementById("mineProgressText")
+  .textContent =
+  game.mineCount + " / 3";
+
+
+  document.getElementById("progressFill")
+  .style.width =
+  ((game.mineCount / 3) * 100) + "%";
+
+
+  document.getElementById("xpText")
+  .textContent =
+  game.xp + " / 100";
+
+
+  document.getElementById("xpFill")
+  .style.width =
+  game.xp + "%";
+
+
+  updateTools();
+
+}
+
+
+/* ==============================
+   TOOL UI
+   ============================== */
+
+function updateTools(){
+
+  const axe =
+    document.getElementById("axeBtn");
+
+  if(game.axe){
+
+    axe.textContent="Owned ✓";
+    axe.disabled=true;
+
+  }
+
+
+  const stone =
+    document.getElementById("stonePickBtn");
+
+  if(game.stonePickaxe){
+
+    stone.textContent="Owned ✓";
+    stone.disabled=true;
+
+  }
+
+
+  const iron =
+    document.getElementById("ironPickBtn");
+
+  if(game.ironPickaxe){
+
+    iron.textContent="Owned ✓";
+    iron.disabled=true;
+
+  }
+
+
+  const gold =
+    document.getElementById("goldPickBtn");
+
+  if(game.goldPickaxe){
+
+    gold.textContent="Owned ✓";
+    gold.disabled=true;
+
+  }
+
+}
+
+
+/* ==============================
+   TOAST
+   ============================== */
+
+window.showToast = function(message){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent=message;
+
+  toast.style.display="block";
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer =
+  setTimeout(()=>{
+
+    toast.style.display="none";
+
+  },1800);
+
+};
+
+
+/* ==============================
+   START
+   ============================== */
+
+loadGame();
+
+</script>
+
+</body>
+  </html>
