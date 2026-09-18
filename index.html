@@ -104,21 +104,9 @@ button{
 }
 
 .balanceValue{
-  display:flex;
-  align-items:center;
-  gap:8px;
   font-size:30px;
   font-weight:bold;
   margin-top:5px;
-}
-
-.skaCoinLogo{
-  width:42px;
-  height:42px;
-  object-fit:cover;
-  border-radius:50%;
-  display:block;
-  flex-shrink:0;
 }
 
 .coin{
@@ -253,20 +241,7 @@ button{
 }
 
 .itemIcon{
-  width:34px;
-  height:34px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   font-size:25px;
-}
-
-.inventoryCoinLogo{
-  width:34px;
-  height:34px;
-  object-fit:cover;
-  border-radius:50%;
-  display:block;
 }
 
 .itemName{
@@ -390,6 +365,7 @@ button{
 
 <body>
 
+<!-- LOADING -->
 <div class="loading" id="loading">
   <div class="loadingBox">
     <div class="loadingLogo">⛏️ SKA</div>
@@ -401,6 +377,7 @@ button{
 
 <div class="container">
 
+  <!-- HEADER -->
   <div class="header">
 
     <div class="logo">⛏️ SKA Kingdom</div>
@@ -442,15 +419,7 @@ button{
       </div>
 
       <div class="balanceValue">
-
-        <img
-          src="./ska-coin.png?v=2"
-          alt="SKA Coin"
-          class="skaCoinLogo"
-        >
-
-        <span class="coin" id="coins">0</span>
-
+        🪙 <span class="coin" id="coins">0</span>
       </div>
 
     </div>
@@ -488,12 +457,12 @@ button{
 
       </div>
 
-      <button
-        class="mineBtn locked"
-        id="woodBtn"
-        onclick="mine('wood')"
-      >
+      <button class="mineBtn locked"
+              id="woodBtn"
+              onclick="mine('wood')">
+
         🔒 Buy Axe First
+
       </button>
 
     </div>
@@ -526,12 +495,12 @@ button{
 
       </div>
 
-      <button
-        class="mineBtn locked"
-        id="stoneBtn"
-        onclick="mine('stone')"
-      >
+      <button class="mineBtn locked"
+              id="stoneBtn"
+              onclick="mine('stone')">
+
         🔒 Unlock Stone Pickaxe
+
       </button>
 
     </div>
@@ -564,12 +533,12 @@ button{
 
       </div>
 
-      <button
-        class="mineBtn locked"
-        id="ironBtn"
-        onclick="mine('iron')"
-      >
+      <button class="mineBtn locked"
+              id="ironBtn"
+              onclick="mine('iron')">
+
         🔒 Unlock Iron Pickaxe
+
       </button>
 
     </div>
@@ -602,12 +571,12 @@ button{
 
       </div>
 
-      <button
-        class="mineBtn locked"
-        id="goldBtn"
-        onclick="mine('gold')"
-      >
+      <button class="mineBtn locked"
+              id="goldBtn"
+              onclick="mine('gold')">
+
         🔒 Unlock Gold Pickaxe
+
       </button>
 
     </div>
@@ -640,12 +609,12 @@ button{
 
       </div>
 
-      <button
-        class="mineBtn locked"
-        id="diamondBtn"
-        onclick="mine('diamond')"
-      >
+      <button class="mineBtn locked"
+              id="diamondBtn"
+              onclick="mine('diamond')">
+
         🔒 Unlock Diamond Pickaxe
+
       </button>
 
     </div>
@@ -678,12 +647,12 @@ button{
 
       </div>
 
-      <button
-        class="mineBtn locked"
-        id="crystalBtn"
-        onclick="mine('crystal')"
-      >
+      <button class="mineBtn locked"
+              id="crystalBtn"
+              onclick="mine('crystal')">
+
         🔒 Unlock Crystal Tool
+
       </button>
 
     </div>
@@ -701,6 +670,7 @@ button{
     <div class="tools">
 
 
+      <!-- AXE -->
       <div class="tool">
 
         <div class="toolIcon">
@@ -715,17 +685,18 @@ button{
           Required for Wood
         </div>
 
-        <button
-          class="buyBtn"
-          id="axeBuy"
-          onclick="buyTool('axe')"
-        >
+        <button class="buyBtn"
+                id="axeBuy"
+                onclick="buyTool('axe')">
+
           Buy • 50 SKA
+
         </button>
 
       </div>
 
 
+      <!-- STONE PICKAXE -->
       <div class="tool">
 
         <div class="toolIcon">
@@ -740,17 +711,18 @@ button{
           Requires 3 Wood
         </div>
 
-        <button
-          class="buyBtn"
-          id="stonePickBuy"
-          onclick="buyTool('stonePickaxe')"
-        >
+        <button class="buyBtn"
+                id="stonePickBuy"
+                onclick="buyTool('stonePickaxe')">
+
           Unlock
+
         </button>
 
       </div>
 
 
+      <!-- IRON PICKAXE -->
       <div class="tool">
 
         <div class="toolIcon">
@@ -765,17 +737,18 @@ button{
           Requires 5 Stone
         </div>
 
-        <button
-          class="buyBtn"
-          id="ironPickBuy"
-          onclick="buyTool('ironPickaxe')"
-        >
+        <button class="buyBtn"
+                id="ironPickBuy"
+                onclick="buyTool('ironPickaxe')">
+
           Unlock
+
         </button>
 
       </div>
 
 
+      <!-- GOLD PICKAXE -->
       <div class="tool">
 
         <div class="toolIcon">
@@ -790,17 +763,18 @@ button{
           Requires 5 Iron
         </div>
 
-        <button
-          class="buyBtn"
-          id="goldPickBuy"
-          onclick="buyTool('goldPickaxe')"
-        >
+        <button class="buyBtn"
+                id="goldPickBuy"
+                onclick="buyTool('goldPickaxe')">
+
           Unlock
+
         </button>
 
       </div>
 
 
+      <!-- DIAMOND PICKAXE -->
       <div class="tool">
 
         <div class="toolIcon">
@@ -815,17 +789,18 @@ button{
           Requires 5 Gold
         </div>
 
-        <button
-          class="buyBtn"
-          id="diamondPickBuy"
-          onclick="buyTool('diamondPickaxe')"
-        >
+        <button class="buyBtn"
+                id="diamondPickBuy"
+                onclick="buyTool('diamondPickaxe')">
+
           Unlock
+
         </button>
 
       </div>
 
 
+      <!-- CRYSTAL -->
       <div class="tool">
 
         <div class="toolIcon">
@@ -840,12 +815,12 @@ button{
           Requires 5 Diamond
         </div>
 
-        <button
-          class="buyBtn"
-          id="crystalToolBuy"
-          onclick="buyTool('crystalTool')"
-        >
+        <button class="buyBtn"
+                id="crystalToolBuy"
+                onclick="buyTool('crystalTool')">
+
           Unlock
+
         </button>
 
       </div>
@@ -871,127 +846,51 @@ button{
 
 
       <div class="item">
-
-        <div class="itemIcon">
-
-          <img
-            src="./ska-coin.png?v=2"
-            alt="SKA Coin"
-            class="inventoryCoinLogo"
-          >
-
-        </div>
-
-        <div class="itemName">
-          SKA Coin
-        </div>
-
-        <div class="itemAmount" id="invCoins">
-          0
-        </div>
-
+        <div class="itemIcon">🪙</div>
+        <div class="itemName">SKA Coin</div>
+        <div class="itemAmount" id="invCoins">0</div>
       </div>
 
 
       <div class="item">
-
-        <div class="itemIcon">
-          🌳
-        </div>
-
-        <div class="itemName">
-          Wood
-        </div>
-
-        <div class="itemAmount" id="invWood">
-          0
-        </div>
-
+        <div class="itemIcon">🌳</div>
+        <div class="itemName">Wood</div>
+        <div class="itemAmount" id="invWood">0</div>
       </div>
 
 
       <div class="item">
-
-        <div class="itemIcon">
-          🪨
-        </div>
-
-        <div class="itemName">
-          Stone
-        </div>
-
-        <div class="itemAmount" id="invStone">
-          0
-        </div>
-
+        <div class="itemIcon">🪨</div>
+        <div class="itemName">Stone</div>
+        <div class="itemAmount" id="invStone">0</div>
       </div>
 
 
       <div class="item">
-
-        <div class="itemIcon">
-          ⛓️
-        </div>
-
-        <div class="itemName">
-          Iron
-        </div>
-
-        <div class="itemAmount" id="invIron">
-          0
-        </div>
-
+        <div class="itemIcon">⛓️</div>
+        <div class="itemName">Iron</div>
+        <div class="itemAmount" id="invIron">0</div>
       </div>
 
 
       <div class="item">
-
-        <div class="itemIcon">
-          🪙
-        </div>
-
-        <div class="itemName">
-          Gold
-        </div>
-
-        <div class="itemAmount" id="invGold">
-          0
-        </div>
-
+        <div class="itemIcon">🪙</div>
+        <div class="itemName">Gold</div>
+        <div class="itemAmount" id="invGold">0</div>
       </div>
 
 
       <div class="item">
-
-        <div class="itemIcon">
-          💎
-        </div>
-
-        <div class="itemName">
-          Diamond
-        </div>
-
-        <div class="itemAmount" id="invDiamond">
-          0
-        </div>
-
+        <div class="itemIcon">💎</div>
+        <div class="itemName">Diamond</div>
+        <div class="itemAmount" id="invDiamond">0</div>
       </div>
 
 
       <div class="item">
-
-        <div class="itemIcon">
-          🔮
-        </div>
-
-        <div class="itemName">
-          Crystal
-        </div>
-
-        <div class="itemAmount" id="invCrystal">
-          0
-        </div>
-
+        <div class="itemIcon">🔮</div>
+        <div class="itemName">Crystal</div>
+        <div class="itemAmount" id="invCrystal">0</div>
       </div>
 
     </div>
@@ -1011,24 +910,26 @@ button{
 
       <div class="player">
 
-        <div
-          class="avatar"
-          id="profileAvatar"
-        >
+        <div class="avatar"
+             id="profileAvatar">
+
           👤
+
         </div>
 
         <div>
 
-          <div
-            class="playerName"
-            id="profileName"
-          >
+          <div class="playerName"
+               id="profileName">
+
             Player
+
           </div>
 
           <div class="playerLevel">
+
             Level <span id="profileLevel">1</span>
+
           </div>
 
         </div>
@@ -1036,18 +937,16 @@ button{
       </div>
 
 
-      <div
-        style="margin-top:18px;color:#8d99ad;font-size:13px;"
-      >
+      <div style="margin-top:18px;color:#8d99ad;font-size:13px;">
         Telegram ID
       </div>
 
 
-      <div
-        id="telegramId"
-        style="margin-top:5px;font-weight:bold;word-break:break-all;"
-      >
+      <div id="telegramId"
+           style="margin-top:5px;font-weight:bold;word-break:break-all;">
+
         -
+
       </div>
 
     </div>
@@ -1055,17 +954,15 @@ button{
 
     <div class="mineCard">
 
-      <div
-        style="color:#8d99ad;font-size:13px;"
-      >
+      <div style="color:#8d99ad;font-size:13px;">
         Account Status
       </div>
 
-      <div
-        id="firebaseStatus"
-        style="margin-top:7px;font-weight:bold;color:#58e38b;"
-      >
+      <div id="firebaseStatus"
+           style="margin-top:7px;font-weight:bold;color:#58e38b;">
+
         ● Checking Firebase...
+
       </div>
 
     </div>
@@ -1081,10 +978,8 @@ button{
   <div class="navInner">
 
 
-    <button
-      class="navBtn active"
-      onclick="showPage('homePage',this)"
-    >
+    <button class="navBtn active"
+            onclick="showPage('homePage',this)">
 
       <span>⛏️</span>
       Mine
@@ -1092,10 +987,8 @@ button{
     </button>
 
 
-    <button
-      class="navBtn"
-      onclick="showPage('toolsPage',this)"
-    >
+    <button class="navBtn"
+            onclick="showPage('toolsPage',this)">
 
       <span>🛠️</span>
       Tools
@@ -1103,10 +996,8 @@ button{
     </button>
 
 
-    <button
-      class="navBtn"
-      onclick="showPage('inventoryPage',this)"
-    >
+    <button class="navBtn"
+            onclick="showPage('inventoryPage',this)">
 
       <span>🎒</span>
       Inventory
@@ -1114,10 +1005,8 @@ button{
     </button>
 
 
-    <button
-      class="navBtn"
-      onclick="showPage('profilePage',this)"
-    >
+    <button class="navBtn"
+            onclick="showPage('profilePage',this)">
 
       <span>👤</span>
       Profile
@@ -1153,8 +1042,7 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
 
-  apiKey:
-    "AIzaSyD1kevTH6OW8DF0KipenOOZA2FqOG5V3JQ",
+  apiKey: "AIzaSyD1kevTH6OW8DF0KipenOOZA2FqOG5V3JQ",
 
   authDomain:
     "ska-kingdom.firebaseapp.com",
@@ -1200,10 +1088,7 @@ if(tg){
 
   }catch(error){
 
-    console.log(
-      "Telegram API error",
-      error
-    );
+    console.log("Telegram API error",error);
 
   }
 
@@ -1216,35 +1101,29 @@ if(tg){
 
 let player = {
 
-  coins:100,
+  coins: 100,
 
-  level:1,
+  level: 1,
 
-  wood:0,
-  stone:0,
-  iron:0,
-  gold:0,
-  diamond:0,
-  crystal:0,
+  wood: 0,
+  stone: 0,
+  iron: 0,
+  gold: 0,
+  diamond: 0,
+  crystal: 0,
 
-  tools:{
+  tools: {
 
     axe:false,
-
     stonePickaxe:false,
-
     ironPickaxe:false,
-
     goldPickaxe:false,
-
     diamondPickaxe:false,
-
     crystalTool:false
 
   },
 
   createdAt:null,
-
   updatedAt:null
 
 };
@@ -1326,8 +1205,7 @@ function hideLoading(){
 
   if(loading){
 
-    loading.style.display =
-      "none";
+    loading.style.display="none";
 
   }
 
@@ -1337,14 +1215,11 @@ function hideLoading(){
 function loadingStatus(text){
 
   const element =
-    document.getElementById(
-      "loadingStatus"
-    );
+    document.getElementById("loadingStatus");
 
   if(element){
 
-    element.textContent =
-      text;
+    element.textContent=text;
 
   }
 
@@ -1360,19 +1235,13 @@ function initFirebase(){
   try{
 
     const app =
-      initializeApp(
-        firebaseConfig
-      );
+      initializeApp(firebaseConfig);
 
     db =
       getFirestore(app);
 
     playerRef =
-      doc(
-        db,
-        "users",
-        playerId
-      );
+      doc(db,"users",playerId);
 
     firebaseOK=true;
 
@@ -1396,4 +1265,1406 @@ function initFirebase(){
 
 /* =====================================================
    LOAD PLAYER
-================================
+===================================================== */
+
+async function loadPlayer(){
+
+  loadingStatus("Connecting to Firebase...");
+
+
+  if(!initFirebase()){
+
+    updateUI();
+
+    hideLoading();
+
+    document.getElementById(
+      "firebaseStatus"
+    ).textContent=
+      "● Offline Mode";
+
+    document.getElementById(
+      "firebaseStatus"
+    ).style.color="#ffb84d";
+
+    showToast(
+      "Firebase unavailable • Offline mode"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const snapshot =
+      await Promise.race([
+
+        getDoc(playerRef),
+
+        new Promise((_,reject)=>
+
+          setTimeout(
+            ()=>reject(
+              new Error("Firebase timeout")
+            ),
+            7000
+          )
+
+        )
+
+      ]);
+
+
+    if(snapshot.exists()){
+
+      const data =
+        snapshot.data();
+
+
+      player = {
+
+        ...player,
+
+        ...data,
+
+        tools:{
+
+          ...player.tools,
+
+          ...(data.tools || {})
+
+        }
+
+      };
+
+
+      /* Make sure missing values are numbers */
+
+      player.coins =
+        Number(player.coins || 0);
+
+      player.level =
+        Number(player.level || 1);
+
+      player.wood =
+        Number(player.wood || 0);
+
+      player.stone =
+        Number(player.stone || 0);
+
+      player.iron =
+        Number(player.iron || 0);
+
+      player.gold =
+        Number(player.gold || 0);
+
+      player.diamond =
+        Number(player.diamond || 0);
+
+      player.crystal =
+        Number(player.crystal || 0);
+
+
+      document.getElementById(
+        "firebaseStatus"
+      ).textContent=
+        "● Firebase Connected";
+
+
+      document.getElementById(
+        "firebaseStatus"
+      ).style.color="#58e38b";
+
+
+    }else{
+
+      /* New player */
+
+      player.createdAt =
+        new Date().toISOString();
+
+      player.updatedAt =
+        new Date().toISOString();
+
+
+      /*
+        New players receive 100 SKA
+        so the first Axe can be tested.
+      */
+
+      await savePlayer();
+
+
+      document.getElementById(
+        "firebaseStatus"
+      ).textContent=
+        "● Firebase Connected";
+
+    }
+
+
+    updateUI();
+
+    hideLoading();
+
+
+  }catch(error){
+
+    console.error(
+      "Firebase load error:",
+      error
+    );
+
+
+    /*
+      IMPORTANT:
+      Do not leave the user stuck
+      on Loading Kingdom.
+    */
+
+    updateUI();
+
+    hideLoading();
+
+
+    document.getElementById(
+      "firebaseStatus"
+    ).textContent=
+      "● Firebase Error / Offline";
+
+
+    document.getElementById(
+      "firebaseStatus"
+    ).style.color="#ffb84d";
+
+
+    showToast(
+      "Firebase error • Game opened"
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   SAVE PLAYER
+===================================================== */
+
+async function savePlayer(){
+
+  if(!firebaseOK || !playerRef){
+
+    return false;
+
+  }
+
+
+  try{
+
+    player.updatedAt =
+      new Date().toISOString();
+
+
+    const data={
+
+      coins:Number(player.coins || 0),
+
+      level:Number(player.level || 1),
+
+      wood:Number(player.wood || 0),
+
+      stone:Number(player.stone || 0),
+
+      iron:Number(player.iron || 0),
+
+      gold:Number(player.gold || 0),
+
+      diamond:Number(player.diamond || 0),
+
+      crystal:Number(player.crystal || 0),
+
+      tools:{
+
+        axe:Boolean(player.tools.axe),
+
+        stonePickaxe:
+          Boolean(player.tools.stonePickaxe),
+
+        ironPickaxe:
+          Boolean(player.tools.ironPickaxe),
+
+        goldPickaxe:
+          Boolean(player.tools.goldPickaxe),
+
+        diamondPickaxe:
+          Boolean(player.tools.diamondPickaxe),
+
+        crystalTool:
+          Boolean(player.tools.crystalTool)
+
+      },
+
+      telegramId:playerId,
+
+      firstName:telegramUser.firstName,
+
+      lastName:telegramUser.lastName,
+
+      username:telegramUser.username,
+
+      createdAt:
+        player.createdAt ||
+        new Date().toISOString(),
+
+      updatedAt:
+        player.updatedAt
+
+    };
+
+
+    /*
+      Do not make the game wait
+      forever for Firebase.
+    */
+
+    await Promise.race([
+
+      setDoc(
+        playerRef,
+        data,
+        {merge:true}
+      ),
+
+      new Promise((_,reject)=>
+
+        setTimeout(
+          ()=>reject(
+            new Error("Save timeout")
+          ),
+          7000
+        )
+
+      )
+
+    ]);
+
+
+    return true;
+
+
+  }catch(error){
+
+    console.error(
+      "Save error:",
+      error
+    );
+
+    return false;
+
+  }
+
+}
+
+
+/* =====================================================
+   UPDATE UI
+===================================================== */
+
+function updateUI(){
+
+  const values={
+
+    coins:
+      Math.floor(player.coins),
+
+    level:
+      player.level,
+
+    wood:
+      player.wood,
+
+    stone:
+      player.stone,
+
+    iron:
+      player.iron,
+
+    gold:
+      player.gold,
+
+    diamond:
+      player.diamond,
+
+    crystal:
+      player.crystal
+
+  };
+
+
+  for(const id in values){
+
+    const element =
+      document.getElementById(id);
+
+    if(element){
+
+      element.textContent =
+        values[id];
+
+    }
+
+  }
+
+
+  const inventory={
+
+    invCoins:
+      Math.floor(player.coins),
+
+    invWood:
+      player.wood,
+
+    invStone:
+      player.stone,
+
+    invIron:
+      player.iron,
+
+    invGold:
+      player.gold,
+
+    invDiamond:
+      player.diamond,
+
+    invCrystal:
+      player.crystal
+
+  };
+
+
+  for(const id in inventory){
+
+    const element =
+      document.getElementById(id);
+
+    if(element){
+
+      element.textContent =
+        inventory[id];
+
+    }
+
+  }
+
+
+  const name =
+    telegramUser.firstName +
+    (
+      telegramUser.lastName
+      ? " "+telegramUser.lastName
+      : ""
+    );
+
+
+  document.getElementById(
+    "playerName"
+  ).textContent=name;
+
+
+  document.getElementById(
+    "profileName"
+  ).textContent=name;
+
+
+  document.getElementById(
+    "profileLevel"
+  ).textContent=player.level;
+
+
+  document.getElementById(
+    "telegramId"
+  ).textContent=playerId;
+
+
+  setAvatar("avatar");
+
+  setAvatar("profileAvatar");
+
+
+  updateMiningButtons();
+
+  updateToolButtons();
+
+}
+
+
+/* =====================================================
+   AVATAR
+===================================================== */
+
+function setAvatar(id){
+
+  const element =
+    document.getElementById(id);
+
+
+  if(!element){
+
+    return;
+
+  }
+
+
+  if(telegramUser.photoUrl){
+
+    element.innerHTML="";
+
+
+    const img =
+      document.createElement("img");
+
+
+    img.src =
+      telegramUser.photoUrl;
+
+
+    img.alt="avatar";
+
+
+    element.appendChild(img);
+
+  }else{
+
+    element.textContent="👤";
+
+  }
+
+}
+
+
+/* =====================================================
+   LEVEL
+===================================================== */
+
+function updateLevel(){
+
+  /*
+    Simple progression:
+    Every 100 total resources = +1 level
+  */
+
+  const total=
+
+    player.wood+
+    player.stone+
+    player.iron+
+    player.gold+
+    player.diamond+
+    player.crystal;
+
+
+  const newLevel =
+    Math.max(
+      1,
+      Math.floor(total/100)+1
+    );
+
+
+  if(newLevel !== player.level){
+
+    player.level =
+      newLevel;
+
+    showToast(
+      "🎉 Level "+newLevel+" reached!"
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   MINING
+===================================================== */
+
+async function mine(resource){
+
+  if(resource==="wood"){
+
+    if(!player.tools.axe){
+
+      showToast(
+        "पहले Axe खरीदो • 50 SKA"
+      );
+
+      showPage(
+        "toolsPage",
+        document.querySelectorAll(".navBtn")[1]
+      );
+
+      return;
+
+    }
+
+
+    player.wood += 1;
+
+    showToast(
+      "🌳 +1 Wood"
+    );
+
+  }
+
+
+  else if(resource==="stone"){
+
+    if(!player.tools.stonePickaxe){
+
+      showToast(
+        "पहले Stone Pickaxe unlock करो"
+      );
+
+      showPage(
+        "toolsPage",
+        document.querySelectorAll(".navBtn")[1]
+      );
+
+      return;
+
+    }
+
+
+    player.stone += 1;
+
+    showToast(
+      "🪨 +1 Stone"
+    );
+
+  }
+
+
+  else if(resource==="iron"){
+
+    if(!player.tools.ironPickaxe){
+
+      showToast(
+        "पहले Iron Pickaxe unlock करो"
+      );
+
+      showPage(
+        "toolsPage",
+        document.querySelectorAll(".navBtn")[1]
+      );
+
+      return;
+
+    }
+
+
+    player.iron += 1;
+
+    showToast(
+      "⛓️ +1 Iron"
+    );
+
+  }
+
+
+  else if(resource==="gold"){
+
+    if(!player.tools.goldPickaxe){
+
+      showToast(
+        "पहले Gold Pickaxe unlock करो"
+      );
+
+      showPage(
+        "toolsPage",
+        document.querySelectorAll(".navBtn")[1]
+      );
+
+      return;
+
+    }
+
+
+    player.gold += 1;
+
+    showToast(
+      "🪙 +1 Gold"
+    );
+
+  }
+
+
+  else if(resource==="diamond"){
+
+    if(!player.tools.diamondPickaxe){
+
+      showToast(
+        "पहले Diamond Pickaxe unlock करो"
+      );
+
+      showPage(
+        "toolsPage",
+        document.querySelectorAll(".navBtn")[1]
+      );
+
+      return;
+
+    }
+
+
+    player.diamond += 1;
+
+    showToast(
+      "💎 +1 Diamond"
+    );
+
+  }
+
+
+  else if(resource==="crystal"){
+
+    if(!player.tools.crystalTool){
+
+      showToast(
+        "पहले Crystal Tool unlock करो"
+      );
+
+      showPage(
+        "toolsPage",
+        document.querySelectorAll(".navBtn")[1]
+      );
+
+      return;
+
+    }
+
+
+    player.crystal += 1;
+
+    showToast(
+      "🔮 +1 Crystal"
+    );
+
+  }
+
+
+  updateLevel();
+
+  updateUI();
+
+
+  /*
+    Save in background.
+    UI does not wait for Firebase.
+  */
+
+  savePlayer();
+
+}
+
+
+/* =====================================================
+   BUY / UNLOCK TOOLS
+===================================================== */
+
+async function buyTool(tool){
+
+  /* AXE */
+
+  if(tool==="axe"){
+
+    if(player.tools.axe){
+
+      showToast(
+        "Axe already unlocked"
+      );
+
+      return;
+
+    }
+
+
+    if(player.coins < 50){
+
+      showToast(
+        "❌ Need 50 SKA Coin"
+      );
+
+      return;
+
+    }
+
+
+    player.coins -= 50;
+
+    player.tools.axe=true;
+
+
+    showToast(
+      "🪓 Axe unlocked!"
+    );
+
+  }
+
+
+  /* STONE PICKAXE */
+
+  else if(tool==="stonePickaxe"){
+
+    if(player.tools.stonePickaxe){
+
+      showToast(
+        "Stone Pickaxe already unlocked"
+      );
+
+      return;
+
+    }
+
+
+    if(!player.tools.axe){
+
+      showToast(
+        "पहले Axe खरीदो"
+      );
+
+      return;
+
+    }
+
+
+    if(player.wood < 3){
+
+      showToast(
+        "❌ Need 3 Wood"
+      );
+
+      return;
+
+    }
+
+
+    player.wood -= 3;
+
+    player.tools.stonePickaxe=true;
+
+
+    showToast(
+      "⛏️ Stone Pickaxe unlocked!"
+    );
+
+  }
+
+
+  /* IRON PICKAXE */
+
+  else if(tool==="ironPickaxe"){
+
+    if(player.tools.ironPickaxe){
+
+      showToast(
+        "Iron Pickaxe already unlocked"
+      );
+
+      return;
+
+    }
+
+
+    if(!player.tools.stonePickaxe){
+
+      showToast(
+        "पहले Stone Pickaxe unlock करो"
+      );
+
+      return;
+
+    }
+
+
+    if(player.stone < 5){
+
+      showToast(
+        "❌ Need 5 Stone"
+      );
+
+      return;
+
+    }
+
+
+    player.stone -= 5;
+
+    player.tools.ironPickaxe=true;
+
+
+    showToast(
+      "⛏️ Iron Pickaxe unlocked!"
+    );
+
+  }
+
+
+  /* GOLD PICKAXE */
+
+  else if(tool==="goldPickaxe"){
+
+    if(player.tools.goldPickaxe){
+
+      showToast(
+        "Gold Pickaxe already unlocked"
+      );
+
+      return;
+
+    }
+
+
+    if(!player.tools.ironPickaxe){
+
+      showToast(
+        "पहले Iron Pickaxe unlock करो"
+      );
+
+      return;
+
+    }
+
+
+    if(player.iron < 5){
+
+      showToast(
+        "❌ Need 5 Iron"
+      );
+
+      return;
+
+    }
+
+
+    player.iron -= 5;
+
+    player.tools.goldPickaxe=true;
+
+
+    showToast(
+      "🪙 Gold Pickaxe unlocked!"
+    );
+
+  }
+
+
+  /* DIAMOND PICKAXE */
+
+  else if(tool==="diamondPickaxe"){
+
+    if(player.tools.diamondPickaxe){
+
+      showToast(
+        "Diamond Pickaxe already unlocked"
+      );
+
+      return;
+
+    }
+
+
+    if(!player.tools.goldPickaxe){
+
+      showToast(
+        "पहले Gold Pickaxe unlock करो"
+      );
+
+      return;
+
+    }
+
+
+    if(player.gold < 5){
+
+      showToast(
+        "❌ Need 5 Gold"
+      );
+
+      return;
+
+    }
+
+
+    player.gold -= 5;
+
+    player.tools.diamondPickaxe=true;
+
+
+    showToast(
+      "💎 Diamond Pickaxe unlocked!"
+    );
+
+  }
+
+
+  /* CRYSTAL TOOL */
+
+  else if(tool==="crystalTool"){
+
+    if(player.tools.crystalTool){
+
+      showToast(
+        "Crystal Tool already unlocked"
+      );
+
+      return;
+
+    }
+
+
+    if(!player.tools.diamondPickaxe){
+
+      showToast(
+        "पहले Diamond Pickaxe unlock करो"
+      );
+
+      return;
+
+    }
+
+
+    if(player.diamond < 5){
+
+      showToast(
+        "❌ Need 5 Diamond"
+      );
+
+      return;
+
+    }
+
+
+    player.diamond -= 5;
+
+    player.tools.crystalTool=true;
+
+
+    showToast(
+      "🔮 Crystal Tool unlocked!"
+    );
+
+  }
+
+
+  updateUI();
+
+  savePlayer();
+
+}
+
+
+/* =====================================================
+   MINING BUTTONS
+===================================================== */
+
+function updateMiningButtons(){
+
+  const buttons={
+
+    woodBtn:{
+      unlocked:
+        player.tools.axe,
+
+      text:
+        "🪓 Chop Tree"
+
+    },
+
+    stoneBtn:{
+      unlocked:
+        player.tools.stonePickaxe,
+
+      text:
+        "⛏️ Mine Stone"
+
+    },
+
+    ironBtn:{
+      unlocked:
+        player.tools.ironPickaxe,
+
+      text:
+        "⛏️ Mine Iron"
+
+    },
+
+    goldBtn:{
+      unlocked:
+        player.tools.goldPickaxe,
+
+      text:
+        "⛏️ Mine Gold"
+
+    },
+
+    diamondBtn:{
+      unlocked:
+        player.tools.diamondPickaxe,
+
+      text:
+        "⛏️ Mine Diamond"
+
+    },
+
+    crystalBtn:{
+      unlocked:
+        player.tools.crystalTool,
+
+      text:
+        "🔮 Mine Crystal"
+
+    }
+
+  };
+
+
+  for(const id in buttons){
+
+    const button =
+      document.getElementById(id);
+
+
+    if(!button){
+
+      continue;
+
+    }
+
+
+    const data =
+      buttons[id];
+
+
+    if(data.unlocked){
+
+      button.classList.remove(
+        "locked"
+      );
+
+      button.textContent =
+        data.text;
+
+    }else{
+
+      button.classList.add(
+        "locked"
+      );
+
+    }
+
+  }
+
+}
+
+
+/* =====================================================
+   TOOL BUTTONS
+===================================================== */
+
+function updateToolButtons(){
+
+  const configs={
+
+    axeBuy:{
+      unlocked:
+        player.tools.axe,
+
+      text:
+        "✓ Owned"
+
+    },
+
+    stonePickBuy:{
+      unlocked:
+        player.tools.stonePickaxe,
+
+      text:
+        "✓ Owned"
+
+    },
+
+    ironPickBuy:{
+      unlocked:
+        player.tools.ironPickaxe,
+
+      text:
+        "✓ Owned"
+
+    },
+
+    goldPickBuy:{
+      unlocked:
+        player.tools.goldPickaxe,
+
+      text:
+        "✓ Owned"
+
+    },
+
+    diamondPickBuy:{
+      unlocked:
+        player.tools.diamondPickaxe,
+
+      text:
+        "✓ Owned"
+
+    },
+
+    crystalToolBuy:{
+      unlocked:
+        player.tools.crystalTool,
+
+      text:
+        "✓ Owned"
+
+    }
+
+  };
+
+
+  for(const id in configs){
+
+    const button =
+      document.getElementById(id);
+
+
+    if(!button){
+
+      continue;
+
+    }
+
+
+    const data =
+      configs[id];
+
+
+    if(data.unlocked){
+
+      button.textContent =
+        data.text;
+
+      button.disabled=true;
+
+    }else{
+
+      button.disabled=false;
+
+      if(id==="axeBuy"){
+
+        button.textContent=
+          "Buy • 50 SKA";
+
+      }else{
+
+        button.textContent=
+          "Unlock";
+
+      }
+
+    }
+
+  }
+
+}
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function showPage(pageId,button){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(page=>{
+
+      page.classList.remove(
+        "active"
+      );
+
+    });
+
+
+  const page =
+    document.getElementById(pageId);
+
+
+  if(page){
+
+    page.classList.add(
+      "active"
+    );
+
+  }
+
+
+  document
+    .querySelectorAll(".navBtn")
+    .forEach(btn=>{
+
+      btn.classList.remove(
+        "active"
+      );
+
+    });
+
+
+  if(button){
+
+    button.classList.add(
+      "active"
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer=null;
+
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+
+  if(!toast){
+
+    return;
+
+  }
+
+
+  toast.textContent =
+    message;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toastTimer =
+    setTimeout(()=>{
+
+      toast.classList.remove(
+        "show"
+      );
+
+    },2200);
+
+}
+
+
+/* =====================================================
+   MAKE FUNCTIONS AVAILABLE TO HTML BUTTONS
+===================================================== */
+
+window.mine =
+  mine;
+
+window.buyTool =
+  buyTool;
+
+window.showPage =
+  showPage;
+
+window.showToast =
+  showToast;
+
+
+/* =====================================================
+   START GAME
+===================================================== */
+
+updateUI();
+
+
+/*
+  Tell Telegram as early as possible
+  that the Mini App is ready.
+*/
+
+if(tg){
+
+  try{
+
+    tg.ready();
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
+}
+
+
+/*
+  Load Firebase data.
+*/
+
+loadPlayer();
+
+
+/*
+  Safety:
+  Never keep our own loading screen
+  forever if something unexpected happens.
+*/
+
+setTimeout(()=>{
+
+  const loading =
+    document.getElementById("loading");
+
+
+  if(
+    loading &&
+    loading.style.display !== "none"
+  ){
+
+    console.warn(
+      "Loading safety timeout"
+    );
+
+
+    hideLoading();
+
+
+    showToast(
+      "Game opened • Check Firebase"
+    );
+
+  }
+
+},9000);
+
+</script>
+
+</body>
+</html>
