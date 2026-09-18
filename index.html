@@ -2,435 +2,705 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>SKA Kingdom</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <style>
-*{box-sizing:border-box}
-body{
+*{
+  box-sizing:border-box;
   margin:0;
-  background:#0b0f14;
+  padding:0;
+  -webkit-tap-highlight-color:transparent;
+}
+
+body{
+  background:#080b12;
   color:#fff;
   font-family:Arial,sans-serif;
   min-height:100vh;
 }
+
 .container{
   max-width:520px;
   margin:auto;
-  padding:16px;
+  padding:15px;
   padding-bottom:90px;
 }
+
 .header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:15px;
-}
-.logo{
-  font-size:22px;
-  font-weight:800;
-}
-.coin{
-  background:#171e27;
-  border:1px solid #293441;
-  border-radius:14px;
-  padding:10px 14px;
-  font-weight:bold;
-}
-.card{
-  background:#121922;
-  border:1px solid #26313d;
+  background:linear-gradient(135deg,#151c2b,#0d111b);
+  border:1px solid #263247;
   border-radius:20px;
   padding:18px;
-  margin-bottom:14px;
+  margin-bottom:15px;
 }
-.hero{
-  text-align:center;
-  padding:25px 15px;
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
 }
-.hero-icon{
-  font-size:75px;
-  margin:10px;
-}
-.balance{
-  font-size:30px;
-  font-weight:800;
-}
-.small{
-  color:#8e9aa8;
+
+.subtitle{
+  color:#8d99ad;
+  margin-top:5px;
   font-size:13px;
 }
-button{
-  border:0;
-  border-radius:14px;
-  padding:13px 18px;
-  color:#fff;
-  background:#1769ff;
-  font-size:15px;
-  font-weight:bold;
+
+.player{
+  margin-top:15px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#222b3b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+  overflow:hidden;
+}
+
+.avatar img{
   width:100%;
-  margin-top:10px;
+  height:100%;
+  object-fit:cover;
 }
-button:disabled{
-  opacity:.45;
+
+.playerName{
+  font-weight:bold;
 }
-.buy{
-  background:#22a06b;
+
+.playerLevel{
+  color:#8d99ad;
+  font-size:13px;
+  margin-top:3px;
 }
-.mine{
-  background:#8b5cf6;
-  font-size:18px;
+
+.balance{
+  background:linear-gradient(135deg,#172a20,#101a17);
+  border:1px solid #294b36;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:15px;
 }
-.resource{
+
+.balanceTitle{
+  color:#93a19a;
+  font-size:13px;
+}
+
+.balanceValue{
+  font-size:30px;
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.coin{
+  color:#58e38b;
+}
+
+.sectionTitle{
+  font-size:20px;
+  font-weight:bold;
+  margin:20px 0 10px;
+}
+
+.mineCard{
+  background:#101722;
+  border:1px solid #263247;
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:12px;
+}
+
+.resourceTop{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:#171f29;
-  border-radius:15px;
-  padding:13px;
-  margin-top:9px;
 }
-.resource-left{
+
+.resourceInfo{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
 }
-.resource-icon{
+
+.resourceIcon{
+  width:52px;
+  height:52px;
+  border-radius:14px;
+  background:#1a2230;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   font-size:30px;
 }
-.tool{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+
+.resourceName{
+  font-size:17px;
+  font-weight:bold;
+}
+
+.resourceAmount{
+  color:#8d99ad;
+  font-size:13px;
+  margin-top:4px;
+}
+
+.mineBtn{
+  width:100%;
+  margin-top:13px;
+  border:0;
+  border-radius:13px;
+  padding:13px;
+  font-size:15px;
+  font-weight:bold;
+  color:#fff;
+  background:#27344a;
+}
+
+.mineBtn:active{
+  transform:scale(.98);
+}
+
+.mineBtn.locked{
+  background:#171c25;
+  color:#626b79;
+}
+
+.tools{
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:10px;
 }
-.tool button{
-  width:auto;
-  min-width:110px;
+
+.tool{
+  background:#101722;
+  border:1px solid #263247;
+  border-radius:16px;
+  padding:15px;
 }
+
+.toolIcon{
+  font-size:30px;
+}
+
+.toolName{
+  margin-top:7px;
+  font-weight:bold;
+}
+
+.toolInfo{
+  color:#8d99ad;
+  font-size:12px;
+  margin-top:4px;
+}
+
+.buyBtn{
+  width:100%;
+  border:0;
+  border-radius:10px;
+  padding:10px;
+  margin-top:10px;
+  background:#315dff;
+  color:white;
+  font-weight:bold;
+}
+
+.buyBtn:disabled{
+  background:#252b36;
+  color:#656e7c;
+}
+
+.inventory{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.item{
+  background:#101722;
+  border:1px solid #263247;
+  border-radius:15px;
+  padding:14px;
+}
+
+.itemIcon{
+  font-size:25px;
+}
+
+.itemName{
+  margin-top:5px;
+  color:#b8c1cf;
+  font-size:13px;
+}
+
+.itemAmount{
+  font-size:19px;
+  font-weight:bold;
+  margin-top:4px;
+}
+
 .nav{
   position:fixed;
   bottom:0;
   left:0;
   right:0;
-  background:#10161d;
-  border-top:1px solid #293441;
+  height:72px;
+  background:#0c111a;
+  border-top:1px solid #263247;
   display:flex;
   justify-content:center;
-  z-index:10;
+  z-index:50;
 }
-.nav-inner{
+
+.navInner{
   width:100%;
   max-width:520px;
   display:flex;
+  justify-content:space-around;
 }
-.nav button{
-  background:transparent;
-  color:#8e9aa8;
-  border-radius:0;
-  margin:0;
-  padding:12px 4px;
-  font-size:12px;
+
+.navBtn{
+  flex:1;
+  border:0;
+  background:none;
+  color:#687487;
+  font-size:11px;
 }
-.nav button.active{
+
+.navBtn span{
+  display:block;
+  font-size:22px;
+  margin-bottom:3px;
+}
+
+.navBtn.active{
   color:#fff;
 }
-.page{display:none}
-.page.active{display:block}
-.status{
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.notice{
   text-align:center;
-  color:#8e9aa8;
+  color:#7e8a9d;
   font-size:12px;
-  margin-top:10px;
+  padding:15px;
 }
-.profile{
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:85px;
+  transform:translateX(-50%) translateY(20px);
+  background:#202938;
+  border:1px solid #344158;
+  padding:11px 17px;
+  border-radius:12px;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:100;
+  white-space:nowrap;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+.loading{
+  position:fixed;
+  inset:0;
+  background:#080b12;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+}
+
+.loadingBox{
   text-align:center;
 }
-.avatar{
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid #6d5dfc;
-}
-.level{
-  color:#a78bfa;
+
+.loadingLogo{
+  font-size:35px;
   font-weight:bold;
+}
+
+.loadingText{
+  color:#8792a4;
+  margin-top:8px;
+  font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
+<div class="loading" id="loading">
+  <div class="loadingBox">
+    <div class="loadingLogo">⛏️ SKA</div>
+    <div class="loadingText">Loading Kingdom...</div>
+  </div>
+</div>
+
 <div class="container">
 
   <div class="header">
-    <div class="logo">👑 SKA Kingdom</div>
-    <div class="coin">🪙 <span id="coin">0</span></div>
+    <div class="logo">⛏️ SKA Kingdom</div>
+    <div class="subtitle">Mine • Craft • Upgrade • Trade</div>
+
+    <div class="player">
+      <div class="avatar" id="avatar">👤</div>
+      <div>
+        <div class="playerName" id="playerName">Player</div>
+        <div class="playerLevel">Level <span id="level">1</span></div>
+      </div>
+    </div>
   </div>
 
   <!-- HOME -->
-  <section id="home" class="page active">
+  <div class="page active" id="homePage">
 
-    <div class="card hero">
-      <div class="hero-icon">🌳</div>
-      <div class="small">Your SKA Kingdom</div>
-      <div class="balance">
-        <span id="coinHome">0</span> SKA
+    <div class="balance">
+      <div class="balanceTitle">SKA COIN</div>
+      <div class="balanceValue">
+        🪙 <span class="coin" id="coins">0</span>
+      </div>
+    </div>
+
+    <div class="sectionTitle">⛏️ Mining</div>
+
+    <div class="mineCard">
+      <div class="resourceTop">
+        <div class="resourceInfo">
+          <div class="resourceIcon">🌳</div>
+          <div>
+            <div class="resourceName">Wood</div>
+            <div class="resourceAmount">
+              Owned: <span id="wood">0</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="small">
-        Level <span id="level">1</span>
-      </div>
-
-      <button id="chopBtn" class="mine" onclick="chopTree()">
-        🪓 CHOP TREE
+      <button class="mineBtn" id="woodBtn" onclick="mine('wood')">
+        🪓 Chop Tree
       </button>
-
-      <div id="cooldown" class="status"></div>
     </div>
 
-    <div class="card">
-      <h3>🌲 Resources</h3>
-
-      <div class="resource">
-        <div class="resource-left">
-          <div class="resource-icon">🪵</div>
+    <div class="mineCard">
+      <div class="resourceTop">
+        <div class="resourceInfo">
+          <div class="resourceIcon">🪨</div>
           <div>
-            <b>Wood</b>
-            <div class="small">Used for crafting</div>
+            <div class="resourceName">Stone</div>
+            <div class="resourceAmount">
+              Owned: <span id="stone">0</span>
+            </div>
           </div>
         </div>
-        <b id="wood">0</b>
       </div>
 
-      <div class="resource">
-        <div class="resource-left">
-          <div class="resource-icon">🪨</div>
-          <div>
-            <b>Stone</b>
-            <div class="small">Mining resource</div>
-          </div>
-        </div>
-        <b id="stone">0</b>
-      </div>
-
-      <div class="resource">
-        <div class="resource-left">
-          <div class="resource-icon">⛓️</div>
-          <div>
-            <b>Iron</b>
-            <div class="small">Advanced resource</div>
-          </div>
-        </div>
-        <b id="iron">0</b>
-      </div>
-
-      <div class="resource">
-        <div class="resource-left">
-          <div class="resource-icon">🪙</div>
-          <div>
-            <b>Gold</b>
-            <div class="small">Rare resource</div>
-          </div>
-        </div>
-        <b id="gold">0</b>
-      </div>
-
-      <div class="resource">
-        <div class="resource-left">
-          <div class="resource-icon">💎</div>
-          <div>
-            <b>Diamond</b>
-            <div class="small">Very rare</div>
-          </div>
-        </div>
-        <b id="diamond">0</b>
-      </div>
+      <button class="mineBtn locked" id="stoneBtn" onclick="mine('stone')">
+        🔒 Buy Pickaxe
+      </button>
     </div>
 
-  </section>
+    <div class="mineCard">
+      <div class="resourceTop">
+        <div class="resourceInfo">
+          <div class="resourceIcon">⛓️</div>
+          <div>
+            <div class="resourceName">Iron</div>
+            <div class="resourceAmount">
+              Owned: <span id="iron">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <button class="mineBtn locked" id="ironBtn" onclick="mine('iron')">
+        🔒 Requires Iron Pickaxe
+      </button>
+    </div>
+
+    <div class="mineCard">
+      <div class="resourceTop">
+        <div class="resourceInfo">
+          <div class="resourceIcon">🪙</div>
+          <div>
+            <div class="resourceName">Gold</div>
+            <div class="resourceAmount">
+              Owned: <span id="gold">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="mineBtn locked" id="goldBtn" onclick="mine('gold')">
+        🔒 Requires Gold Pickaxe
+      </button>
+    </div>
+
+    <div class="mineCard">
+      <div class="resourceTop">
+        <div class="resourceInfo">
+          <div class="resourceIcon">💎</div>
+          <div>
+            <div class="resourceName">Diamond</div>
+            <div class="resourceAmount">
+              Owned: <span id="diamond">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="mineBtn locked" id="diamondBtn" onclick="mine('diamond')">
+        🔒 Requires Diamond Pickaxe
+      </button>
+    </div>
+
+    <div class="mineCard">
+      <div class="resourceTop">
+        <div class="resourceInfo">
+          <div class="resourceIcon">🔮</div>
+          <div>
+            <div class="resourceName">Crystal</div>
+            <div class="resourceAmount">
+              Owned: <span id="crystal">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="mineBtn locked" id="crystalBtn" onclick="mine('crystal')">
+        🔒 Requires Crystal Tool
+      </button>
+    </div>
+
+  </div>
 
   <!-- TOOLS -->
-  <section id="tools" class="page">
+  <div class="page" id="toolsPage">
 
-    <div class="card">
-      <h2>🛠️ Tools</h2>
-      <div class="small">
-        Buy tools to unlock new resources.
-      </div>
-    </div>
+    <div class="sectionTitle">🛠️ Tools</div>
 
-    <div class="card">
+    <div class="tools">
+
       <div class="tool">
-        <div>
-          <h3>🪓 Axe</h3>
-          <div class="small">Required for Wood</div>
-          <b>50 SKA</b>
-        </div>
-        <button id="axeBtn" class="buy" onclick="buyAxe()">BUY</button>
+        <div class="toolIcon">🪓</div>
+        <div class="toolName">Axe</div>
+        <div class="toolInfo">Required for Wood</div>
+        <button class="buyBtn" id="axeBuy" onclick="buyTool('axe')">
+          Buy • 50 SKA
+        </button>
       </div>
-    </div>
 
-    <div class="card">
       <div class="tool">
-        <div>
-          <h3>⛏️ Stone Pickaxe</h3>
-          <div class="small">Requires 3 Wood</div>
-          <b>100 SKA</b>
-        </div>
-        <button id="pickaxeBtn" class="buy" onclick="buyPickaxe()">BUY</button>
+        <div class="toolIcon">⛏️</div>
+        <div class="toolName">Stone Pickaxe</div>
+        <div class="toolInfo">Requires 3 Wood</div>
+        <button class="buyBtn" id="stonePickBuy" onclick="buyTool('stonePickaxe')">
+          Unlock
+        </button>
       </div>
+
+      <div class="tool">
+        <div class="toolIcon">⛏️</div>
+        <div class="toolName">Iron Pickaxe</div>
+        <div class="toolInfo">Requires Stone</div>
+        <button class="buyBtn" id="ironPickBuy" onclick="buyTool('ironPickaxe')">
+          Unlock
+        </button>
+      </div>
+
+      <div class="tool">
+        <div class="toolIcon">⛏️</div>
+        <div class="toolName">Gold Pickaxe</div>
+        <div class="toolInfo">Requires Iron</div>
+        <button class="buyBtn" id="goldPickBuy" onclick="buyTool('goldPickaxe')">
+          Unlock
+        </button>
+      </div>
+
+      <div class="tool">
+        <div class="toolIcon">⛏️</div>
+        <div class="toolName">Diamond Pickaxe</div>
+        <div class="toolInfo">Requires Gold</div>
+        <button class="buyBtn" id="diamondPickBuy" onclick="buyTool('diamondPickaxe')">
+          Unlock
+        </button>
+      </div>
+
+      <div class="tool">
+        <div class="toolIcon">🔮</div>
+        <div class="toolName">Crystal Tool</div>
+        <div class="toolInfo">Requires Diamond</div>
+        <button class="buyBtn" id="crystalToolBuy" onclick="buyTool('crystalTool')">
+          Unlock
+        </button>
+      </div>
+
     </div>
 
-    <div class="card">
-      <h3>⛏️ Mining</h3>
-
-      <button onclick="mineStone()" id="stoneBtn">
-        🪨 Mine Stone
-      </button>
-
-      <button onclick="mineIron()" id="ironBtn">
-        ⛓️ Mine Iron
-      </button>
-
-      <button onclick="mineGold()" id="goldBtn">
-        🪙 Mine Gold
-      </button>
-
-      <button onclick="mineDiamond()" id="diamondBtn">
-        💎 Mine Diamond
-      </button>
+    <div class="notice">
+      Tools stay unlocked in your Firebase account.
     </div>
-
-  </section>
-
+  </div>
 
   <!-- INVENTORY -->
-  <section id="inventory" class="page">
+  <div class="page" id="inventoryPage">
 
-    <div class="card">
-      <h2>🎒 Inventory</h2>
+    <div class="sectionTitle">🎒 Inventory</div>
 
-      <div class="resource">
-        <span>🪵 Wood</span>
-        <b id="invWood">0</b>
+    <div class="inventory">
+
+      <div class="item">
+        <div class="itemIcon">🪙</div>
+        <div class="itemName">SKA Coin</div>
+        <div class="itemAmount" id="invCoins">0</div>
       </div>
 
-      <div class="resource">
-        <span>🪨 Stone</span>
-        <b id="invStone">0</b>
+      <div class="item">
+        <div class="itemIcon">🌳</div>
+        <div class="itemName">Wood</div>
+        <div class="itemAmount" id="invWood">0</div>
       </div>
 
-      <div class="resource">
-        <span>⛓️ Iron</span>
-        <b id="invIron">0</b>
+      <div class="item">
+        <div class="itemIcon">🪨</div>
+        <div class="itemName">Stone</div>
+        <div class="itemAmount" id="invStone">0</div>
       </div>
 
-      <div class="resource">
-        <span>🪙 Gold</span>
-        <b id="invGold">0</b>
+      <div class="item">
+        <div class="itemIcon">⛓️</div>
+        <div class="itemName">Iron</div>
+        <div class="itemAmount" id="invIron">0</div>
       </div>
 
-      <div class="resource">
-        <span>💎 Diamond</span>
-        <b id="invDiamond">0</b>
+      <div class="item">
+        <div class="itemIcon">🪙</div>
+        <div class="itemName">Gold</div>
+        <div class="itemAmount" id="invGold">0</div>
       </div>
+
+      <div class="item">
+        <div class="itemIcon">💎</div>
+        <div class="itemName">Diamond</div>
+        <div class="itemAmount" id="invDiamond">0</div>
+      </div>
+
+      <div class="item">
+        <div class="itemIcon">🔮</div>
+        <div class="itemName">Crystal</div>
+        <div class="itemAmount" id="invCrystal">0</div>
+      </div>
+
     </div>
-
-  </section>
-
+  </div>
 
   <!-- PROFILE -->
-  <section id="profile" class="page">
+  <div class="page" id="profilePage">
 
-    <div class="card profile">
+    <div class="sectionTitle">👤 Profile</div>
 
-      <img id="avatar" class="avatar"
-           src="https://via.placeholder.com/70">
+    <div class="mineCard">
 
-      <h2 id="username">SKA Player</h2>
+      <div class="player">
+        <div class="avatar" id="profileAvatar">👤</div>
 
-      <div class="level">
-        Level <span id="profileLevel">1</span>
+        <div>
+          <div class="playerName" id="profileName">Player</div>
+          <div class="playerLevel">
+            Level <span id="profileLevel">1</span>
+          </div>
+        </div>
       </div>
 
-      <br>
-
-      <div class="resource">
-        <span>🪙 SKA Coin</span>
-        <b id="profileCoin">0</b>
+      <div style="margin-top:18px;color:#8d99ad;font-size:13px;">
+        Telegram ID
       </div>
 
-      <div class="resource">
-        <span>🪓 Axe</span>
-        <b id="profileAxe">Locked</b>
-      </div>
-
-      <div class="resource">
-        <span>⛏️ Pickaxe</span>
-        <b id="profilePickaxe">Locked</b>
+      <div id="telegramId"
+           style="margin-top:5px;font-weight:bold;word-break:break-all;">
+        -
       </div>
 
     </div>
 
-  </section>
+    <div class="mineCard">
+      <div style="color:#8d99ad;font-size:13px;">Account Status</div>
+      <div style="margin-top:7px;font-weight:bold;color:#58e38b;">
+        ● Firebase Connected
+      </div>
+    </div>
 
-  <div id="status" class="status">
-    Connecting to Firebase...
   </div>
 
 </div>
-
-
-<!-- NAVIGATION -->
 
 <div class="nav">
-  <div class="nav-inner">
+  <div class="navInner">
 
-    <button class="active" onclick="showPage('home',this)">
-      🏠<br>Home
+    <button class="navBtn active" onclick="showPage('homePage',this)">
+      <span>⛏️</span>
+      Mine
     </button>
 
-    <button onclick="showPage('tools',this)">
-      🛠️<br>Tools
+    <button class="navBtn" onclick="showPage('toolsPage',this)">
+      <span>🛠️</span>
+      Tools
     </button>
 
-    <button onclick="showPage('inventory',this)">
-      🎒<br>Inventory
+    <button class="navBtn" onclick="showPage('inventoryPage',this)">
+      <span>🎒</span>
+      Inventory
     </button>
 
-    <button onclick="showPage('profile',this)">
-      👤<br>Profile
+    <button class="navBtn" onclick="showPage('profilePage',this)">
+      <span>👤</span>
+      Profile
     </button>
 
   </div>
 </div>
 
+<div class="toast" id="toast"></div>
 
 <script type="module">
 
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+/* =========================
+   FIREBASE
+========================= */
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
   getFirestore,
   doc,
   getDoc,
   setDoc,
-  updateDoc,
-  runTransaction,
-  serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  updateDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
-/* =========================
-   FIREBASE CONFIG
-========================= */
 
 const firebaseConfig = {
   apiKey: "AIzaSyD1kevTH6OW8DF0KipenOOZA2FqOG5V3JQ",
@@ -450,38 +720,83 @@ const db = getFirestore(app);
    TELEGRAM
 ========================= */
 
-const tg = window.Telegram?.WebApp;
+const tg = window.Telegram.WebApp;
 
-if(tg){
-  tg.ready();
-  tg.expand();
-}
+tg.ready();
+tg.expand();
 
 
 /* =========================
-   USER
+   PLAYER DATA
 ========================= */
 
-let telegramUser = tg?.initDataUnsafe?.user;
-
-let userId = telegramUser?.id
-  ? String(telegramUser.id)
-  : "test_user";
-
-let userRef = doc(db,"users",userId);
-
 let player = {
-  coins:100,
-  level:1,
-  wood:0,
-  stone:0,
-  iron:0,
-  gold:0,
-  diamond:0,
-  axe:false,
-  pickaxe:false,
-  lastChop:0
+
+  coins: 0,
+
+  level: 1,
+
+  wood: 0,
+  stone: 0,
+  iron: 0,
+  gold: 0,
+  diamond: 0,
+  crystal: 0,
+
+  tools: {
+    axe: false,
+    stonePickaxe: false,
+    ironPickaxe: false,
+    goldPickaxe: false,
+    diamondPickaxe: false,
+    crystalTool: false
+  },
+
+  createdAt: null,
+  updatedAt: null
 };
+
+
+/* =========================
+   TELEGRAM USER
+========================= */
+
+function getTelegramUser(){
+
+  const user = tg.initDataUnsafe?.user;
+
+  if(user){
+
+    return {
+      id: String(user.id),
+      firstName: user.first_name || "Player",
+      lastName: user.last_name || "",
+      username: user.username || "",
+      photoUrl: user.photo_url || ""
+    };
+
+  }
+
+  return {
+    id: "test_user",
+    firstName: "SKA Player",
+    lastName: "",
+    username: "",
+    photoUrl: ""
+  };
+}
+
+
+const telegramUser = getTelegramUser();
+
+const playerId = telegramUser.id;
+
+
+/* =========================
+   FIRESTORE REFERENCE
+========================= */
+
+const playerRef = doc(db,"users",playerId);
 
 
 /* =========================
@@ -492,39 +807,47 @@ async function loadPlayer(){
 
   try{
 
-    const snap = await getDoc(userRef);
+    const snapshot = await getDoc(playerRef);
 
-    if(snap.exists()){
+    if(snapshot.exists()){
+
+      const data = snapshot.data();
 
       player = {
         ...player,
-        ...snap.data()
+        ...data,
+        tools:{
+          ...player.tools,
+          ...(data.tools || {})
+        }
       };
 
     }else{
 
-      await setDoc(userRef,{
+      player.createdAt = new Date().toISOString();
+      player.updatedAt = new Date().toISOString();
+
+      await setDoc(playerRef,{
         ...player,
-        telegramId:userId,
-        username:telegramUser?.username || "",
-        firstName:telegramUser?.first_name || "",
-        createdAt:serverTimestamp(),
-        updatedAt:serverTimestamp()
+        telegramId: playerId,
+        firstName: telegramUser.firstName,
+        lastName: telegramUser.lastName,
+        username: telegramUser.username
       });
 
     }
 
     updateUI();
 
-    document.getElementById("status").textContent =
-      "🔥 Firebase Connected";
+    document.getElementById("loading").style.display="none";
 
   }catch(error){
 
     console.error(error);
 
-    document.getElementById("status").textContent =
-      "Firebase connection error";
+    document.getElementById("loading").style.display="none";
+
+    showToast("Firebase connection error");
 
   }
 
@@ -537,25 +860,41 @@ async function loadPlayer(){
 
 async function savePlayer(){
 
-  await updateDoc(userRef,{
-    ...player,
-    updatedAt:serverTimestamp()
-  });
+  try{
+
+    player.updatedAt = new Date().toISOString();
+
+    await setDoc(
+      playerRef,
+      {
+        ...player,
+        telegramId: playerId,
+        firstName: telegramUser.firstName,
+        lastName: telegramUser.lastName,
+        username: telegramUser.username
+      },
+      { merge:true }
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    showToast("Save failed");
+
+  }
 
 }
 
 
 /* =========================
-   UI
+   UPDATE UI
 ========================= */
 
 function updateUI(){
 
-  document.getElementById("coin").textContent =
-    player.coins;
-
-  document.getElementById("coinHome").textContent =
-    player.coins;
+  document.getElementById("coins").textContent =
+    Math.floor(player.coins);
 
   document.getElementById("level").textContent =
     player.level;
@@ -575,6 +914,13 @@ function updateUI(){
   document.getElementById("diamond").textContent =
     player.diamond;
 
+  document.getElementById("crystal").textContent =
+    player.crystal;
+
+
+  document.getElementById("invCoins").textContent =
+    Math.floor(player.coins);
+
   document.getElementById("invWood").textContent =
     player.wood;
 
@@ -590,236 +936,146 @@ function updateUI(){
   document.getElementById("invDiamond").textContent =
     player.diamond;
 
-  document.getElementById("profileCoin").textContent =
-    player.coins;
+  document.getElementById("invCrystal").textContent =
+    player.crystal;
+
+
+  const name =
+    telegramUser.firstName +
+    (telegramUser.lastName ? " "+telegramUser.lastName : "");
+
+
+  document.getElementById("playerName").textContent = name;
+  document.getElementById("profileName").textContent = name;
 
   document.getElementById("profileLevel").textContent =
     player.level;
 
-  document.getElementById("profileAxe").textContent =
-    player.axe ? "Owned" : "Locked";
-
-  document.getElementById("profilePickaxe").textContent =
-    player.pickaxe ? "Owned" : "Locked";
+  document.getElementById("telegramId").textContent =
+    playerId;
 
 
-  document.getElementById("axeBtn").textContent =
-    player.axe ? "OWNED" : "BUY";
-
-  document.getElementById("axeBtn").disabled =
-    player.axe;
+  setAvatar("avatar");
+  setAvatar("profileAvatar");
 
 
-  document.getElementById("pickaxeBtn").textContent =
-    player.pickaxe ? "OWNED" : "BUY";
-
-  document.getElementById("pickaxeBtn").disabled =
-    player.pickaxe;
-
-
-  if(!player.axe){
-
-    document.getElementById("chopBtn").disabled=true;
-
-    document.getElementById("chopBtn").textContent =
-      "🔒 BUY AXE FIRST";
-
-  }else{
-
-    document.getElementById("chopBtn").disabled=false;
-
-    document.getElementById("chopBtn").textContent =
-      "🪓 CHOP TREE";
-
-  }
-
-  if(telegramUser){
-
-    document.getElementById("username").textContent =
-      telegramUser.username
-      ? "@"+telegramUser.username
-      : telegramUser.first_name || "SKA Player";
-
-    if(telegramUser.photo_url){
-      document.getElementById("avatar").src =
-        telegramUser.photo_url;
-    }
-
-  }
+  updateMiningButtons();
+  updateToolButtons();
 
 }
 
 
 /* =========================
-   BUY AXE
+   AVATAR
 ========================= */
 
-window.buyAxe = async function(){
+function setAvatar(id){
 
-  if(player.axe) return;
+  const element = document.getElementById(id);
 
-  if(player.coins < 50){
+  if(!element) return;
 
-    alert("You need 50 SKA Coin.");
+  if(telegramUser.photoUrl){
 
-    return;
+    element.innerHTML =
+      `<img src="${telegramUser.photoUrl}" alt="avatar">`;
+
+  }else{
+
+    element.textContent="👤";
+
   }
 
-  player.coins -= 50;
-  player.axe = true;
-
-  await savePlayer();
-
-  updateUI();
-
-  alert("🪓 Axe purchased!");
-
-};
-
-
-/* =========================
-   CHOP TREE
-========================= */
-
-window.chopTree = async function(){
-
-  if(!player.axe){
-
-    alert("Buy Axe first.");
-
-    return;
-  }
-
-  const now = Date.now();
-
-  if(now - (player.lastChop || 0) < 30000){
-
-    const remaining =
-      Math.ceil(
-        (30000 - (now-player.lastChop))/1000
-      );
-
-    alert("Tree is regenerating. Wait "+remaining+" seconds.");
-
-    return;
-  }
-
-  player.wood += 1;
-  player.lastChop = now;
-
-  /* Level every 10 wood */
-
-  player.level =
-    Math.floor(player.wood / 10) + 1;
-
-  await savePlayer();
-
-  updateUI();
-
-  alert("🪵 +1 Wood");
-
-};
-
-
-/* =========================
-   BUY PICKAXE
-========================= */
-
-window.buyPickaxe = async function(){
-
-  if(player.pickaxe) return;
-
-  if(player.wood < 3){
-
-    alert("You need 3 Wood first.");
-
-    return;
-  }
-
-  if(player.coins < 100){
-
-    alert("You need 100 SKA Coin.");
-
-    return;
-  }
-
-  player.coins -= 100;
-  player.wood -= 3;
-  player.pickaxe = true;
-
-  await savePlayer();
-
-  updateUI();
-
-  alert("⛏️ Stone Pickaxe purchased!");
-
-};
+}
 
 
 /* =========================
    MINING
 ========================= */
 
-async function mineResource(type,amount){
+async function mine(resource){
 
-  if(!player.pickaxe){
+  if(resource === "wood"){
 
-    alert("Buy Stone Pickaxe first.");
+    if(!player.tools.axe){
 
-    return;
+      showToast("पहले Axe खरीदो • 50 SKA Coin");
+
+      showPage("toolsPage",
+        document.querySelectorAll(".navBtn")[1]
+      );
+
+      return;
+    }
+
+    player.wood += 1;
+
+    showToast("🌳 +1 Wood");
+
   }
 
-  player[type] += amount;
 
-  await savePlayer();
+  else if(resource === "stone"){
 
-  updateUI();
+    if(!player.tools.stonePickaxe){
 
-  alert("⛏️ +"+amount+" "+type);
+      showToast("पहले Stone Pickaxe unlock करो");
 
-}
+      showPage("toolsPage",
+        document.querySelectorAll(".navBtn")[1]
+      );
 
+      return;
+    }
 
-window.mineStone = () =>
-  mineResource("stone",1);
+    player.stone += 1;
 
-window.mineIron = () =>
-  mineResource("iron",1);
+    showToast("🪨 +1 Stone");
 
-window.mineGold = () =>
-  mineResource("gold",1);
-
-window.mineDiamond = () =>
-  mineResource("diamond",1);
+  }
 
 
-/* =========================
-   PAGE NAVIGATION
-========================= */
+  else if(resource === "iron"){
 
-window.showPage = function(page,button){
+    if(!player.tools.ironPickaxe){
 
-  document.querySelectorAll(".page")
-    .forEach(p=>p.classList.remove("active"));
+      showToast("Iron Pickaxe required");
 
-  document.getElementById(page)
-    .classList.add("active");
+      return;
+    }
 
-  document.querySelectorAll(".nav button")
-    .forEach(b=>b.classList.remove("active"));
+    player.iron += 1;
 
-  button.classList.add("active");
+    showToast("⛓️ +1 Iron");
 
-};
+  }
 
 
-/* =========================
-   START
-========================= */
+  else if(resource === "gold"){
 
-loadPlayer();
+    if(!player.tools.goldPickaxe){
 
-</script>
+      showToast("Gold Pickaxe required");
 
-</body>
-        </html>
+      return;
+    }
+
+    player.gold += 1;
+
+    showToast("🪙 +1 Gold");
+
+  }
+
+
+  else if(resource === "diamond"){
+
+    if(!player.tools.diamondPickaxe){
+
+      showToast("Diamond Pickaxe required");
+
+      return;
+    }
+
+    player.diamond += 1;
+
+    showToast("💎
