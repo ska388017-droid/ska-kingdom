@@ -253,15 +253,17 @@ button{
 }
 
 .itemIcon{
-  font-size:25px;
+  width:34px;
+  height:34px;
   display:flex;
   align-items:center;
-  min-height:32px;
+  justify-content:center;
+  font-size:25px;
 }
 
 .inventoryCoinLogo{
-  width:32px;
-  height:32px;
+  width:34px;
+  height:34px;
   object-fit:cover;
   border-radius:50%;
   display:block;
@@ -388,7 +390,6 @@ button{
 
 <body>
 
-<!-- LOADING -->
 <div class="loading" id="loading">
   <div class="loadingBox">
     <div class="loadingLogo">⛏️ SKA</div>
@@ -397,9 +398,9 @@ button{
   </div>
 </div>
 
+
 <div class="container">
 
-  <!-- HEADER -->
   <div class="header">
 
     <div class="logo">⛏️ SKA Kingdom</div>
@@ -430,6 +431,7 @@ button{
 
   </div>
 
+
   <!-- HOME -->
   <div class="page active" id="homePage">
 
@@ -440,19 +442,24 @@ button{
       </div>
 
       <div class="balanceValue">
+
         <img
-          src="./ska-coin.png"
+          src="./ska-coin.png?v=2"
           alt="SKA Coin"
           class="skaCoinLogo"
         >
+
         <span class="coin" id="coins">0</span>
+
       </div>
 
     </div>
 
+
     <div class="sectionTitle">
       ⛏️ Mining
     </div>
+
 
     <!-- WOOD -->
     <div class="mineCard">
@@ -481,15 +488,16 @@ button{
 
       </div>
 
-      <button class="mineBtn locked"
-              id="woodBtn"
-              onclick="mine('wood')">
-
+      <button
+        class="mineBtn locked"
+        id="woodBtn"
+        onclick="mine('wood')"
+      >
         🔒 Buy Axe First
-
       </button>
 
     </div>
+
 
     <!-- STONE -->
     <div class="mineCard">
@@ -518,15 +526,16 @@ button{
 
       </div>
 
-      <button class="mineBtn locked"
-              id="stoneBtn"
-              onclick="mine('stone')">
-
+      <button
+        class="mineBtn locked"
+        id="stoneBtn"
+        onclick="mine('stone')"
+      >
         🔒 Unlock Stone Pickaxe
-
       </button>
 
     </div>
+
 
     <!-- IRON -->
     <div class="mineCard">
@@ -555,15 +564,16 @@ button{
 
       </div>
 
-      <button class="mineBtn locked"
-              id="ironBtn"
-              onclick="mine('iron')">
-
+      <button
+        class="mineBtn locked"
+        id="ironBtn"
+        onclick="mine('iron')"
+      >
         🔒 Unlock Iron Pickaxe
-
       </button>
 
     </div>
+
 
     <!-- GOLD -->
     <div class="mineCard">
@@ -592,15 +602,16 @@ button{
 
       </div>
 
-      <button class="mineBtn locked"
-              id="goldBtn"
-              onclick="mine('gold')">
-
+      <button
+        class="mineBtn locked"
+        id="goldBtn"
+        onclick="mine('gold')"
+      >
         🔒 Unlock Gold Pickaxe
-
       </button>
 
     </div>
+
 
     <!-- DIAMOND -->
     <div class="mineCard">
@@ -629,15 +640,16 @@ button{
 
       </div>
 
-      <button class="mineBtn locked"
-              id="diamondBtn"
-              onclick="mine('diamond')">
-
+      <button
+        class="mineBtn locked"
+        id="diamondBtn"
+        onclick="mine('diamond')"
+      >
         🔒 Unlock Diamond Pickaxe
-
       </button>
 
     </div>
+
 
     <!-- CRYSTAL -->
     <div class="mineCard">
@@ -666,17 +678,18 @@ button{
 
       </div>
 
-      <button class="mineBtn locked"
-              id="crystalBtn"
-              onclick="mine('crystal')">
-
+      <button
+        class="mineBtn locked"
+        id="crystalBtn"
+        onclick="mine('crystal')"
+      >
         🔒 Unlock Crystal Tool
-
       </button>
 
     </div>
 
   </div>
+
 
   <!-- TOOLS -->
   <div class="page" id="toolsPage">
@@ -687,7 +700,7 @@ button{
 
     <div class="tools">
 
-      <!-- AXE -->
+
       <div class="tool">
 
         <div class="toolIcon">
@@ -702,17 +715,17 @@ button{
           Required for Wood
         </div>
 
-        <button class="buyBtn"
-                id="axeBuy"
-                onclick="buyTool('axe')">
-
+        <button
+          class="buyBtn"
+          id="axeBuy"
+          onclick="buyTool('axe')"
+        >
           Buy • 50 SKA
-
         </button>
 
       </div>
 
-      <!-- STONE PICKAXE -->
+
       <div class="tool">
 
         <div class="toolIcon">
@@ -727,17 +740,17 @@ button{
           Requires 3 Wood
         </div>
 
-        <button class="buyBtn"
-                id="stonePickBuy"
-                onclick="buyTool('stonePickaxe')">
-
+        <button
+          class="buyBtn"
+          id="stonePickBuy"
+          onclick="buyTool('stonePickaxe')"
+        >
           Unlock
-
         </button>
 
       </div>
 
-      <!-- IRON PICKAXE -->
+
       <div class="tool">
 
         <div class="toolIcon">
@@ -752,17 +765,17 @@ button{
           Requires 5 Stone
         </div>
 
-        <button class="buyBtn"
-                id="ironPickBuy"
-                onclick="buyTool('ironPickaxe')">
-
+        <button
+          class="buyBtn"
+          id="ironPickBuy"
+          onclick="buyTool('ironPickaxe')"
+        >
           Unlock
-
         </button>
 
       </div>
 
-      <!-- GOLD PICKAXE -->
+
       <div class="tool">
 
         <div class="toolIcon">
@@ -777,17 +790,17 @@ button{
           Requires 5 Iron
         </div>
 
-        <button class="buyBtn"
-                id="goldPickBuy"
-                onclick="buyTool('goldPickaxe')">
-
+        <button
+          class="buyBtn"
+          id="goldPickBuy"
+          onclick="buyTool('goldPickaxe')"
+        >
           Unlock
-
         </button>
 
       </div>
 
-      <!-- DIAMOND PICKAXE -->
+
       <div class="tool">
 
         <div class="toolIcon">
@@ -802,17 +815,17 @@ button{
           Requires 5 Gold
         </div>
 
-        <button class="buyBtn"
-                id="diamondPickBuy"
-                onclick="buyTool('diamondPickaxe')">
-
+        <button
+          class="buyBtn"
+          id="diamondPickBuy"
+          onclick="buyTool('diamondPickaxe')"
+        >
           Unlock
-
         </button>
 
       </div>
 
-      <!-- CRYSTAL -->
+
       <div class="tool">
 
         <div class="toolIcon">
@@ -827,23 +840,25 @@ button{
           Requires 5 Diamond
         </div>
 
-        <button class="buyBtn"
-                id="crystalToolBuy"
-                onclick="buyTool('crystalTool')">
-
+        <button
+          class="buyBtn"
+          id="crystalToolBuy"
+          onclick="buyTool('crystalTool')"
+        >
           Unlock
-
         </button>
 
       </div>
 
     </div>
 
+
     <div class="notice">
       Your tools and resources are saved to Firebase.
     </div>
 
   </div>
+
 
   <!-- INVENTORY -->
   <div class="page" id="inventoryPage">
@@ -854,13 +869,13 @@ button{
 
     <div class="inventory">
 
-      <!-- SKA COIN -->
+
       <div class="item">
 
         <div class="itemIcon">
 
           <img
-            src="./ska-coin.png"
+            src="./ska-coin.png?v=2"
             alt="SKA Coin"
             class="inventoryCoinLogo"
           >
@@ -877,7 +892,7 @@ button{
 
       </div>
 
-      <!-- WOOD -->
+
       <div class="item">
 
         <div class="itemIcon">
@@ -894,7 +909,7 @@ button{
 
       </div>
 
-      <!-- STONE -->
+
       <div class="item">
 
         <div class="itemIcon">
@@ -911,7 +926,7 @@ button{
 
       </div>
 
-      <!-- IRON -->
+
       <div class="item">
 
         <div class="itemIcon">
@@ -928,7 +943,7 @@ button{
 
       </div>
 
-      <!-- GOLD -->
+
       <div class="item">
 
         <div class="itemIcon">
@@ -945,7 +960,7 @@ button{
 
       </div>
 
-      <!-- DIAMOND -->
+
       <div class="item">
 
         <div class="itemIcon">
@@ -962,7 +977,7 @@ button{
 
       </div>
 
-      <!-- CRYSTAL -->
+
       <div class="item">
 
         <div class="itemIcon">
@@ -983,6 +998,7 @@ button{
 
   </div>
 
+
   <!-- PROFILE -->
   <div class="page" id="profilePage">
 
@@ -990,60 +1006,66 @@ button{
       👤 Profile
     </div>
 
+
     <div class="mineCard">
 
       <div class="player">
 
-        <div class="avatar"
-             id="profileAvatar">
-
+        <div
+          class="avatar"
+          id="profileAvatar"
+        >
           👤
-
         </div>
 
         <div>
 
-          <div class="playerName"
-               id="profileName">
-
+          <div
+            class="playerName"
+            id="profileName"
+          >
             Player
-
           </div>
 
           <div class="playerLevel">
-
             Level <span id="profileLevel">1</span>
-
           </div>
 
         </div>
 
       </div>
 
-      <div style="margin-top:18px;color:#8d99ad;font-size:13px;">
+
+      <div
+        style="margin-top:18px;color:#8d99ad;font-size:13px;"
+      >
         Telegram ID
       </div>
 
-      <div id="telegramId"
-           style="margin-top:5px;font-weight:bold;word-break:break-all;">
 
+      <div
+        id="telegramId"
+        style="margin-top:5px;font-weight:bold;word-break:break-all;"
+      >
         -
-
       </div>
 
     </div>
 
+
     <div class="mineCard">
 
-      <div style="color:#8d99ad;font-size:13px;">
+      <div
+        style="color:#8d99ad;font-size:13px;"
+      >
         Account Status
       </div>
 
-      <div id="firebaseStatus"
-           style="margin-top:7px;font-weight:bold;color:#58e38b;">
-
+      <div
+        id="firebaseStatus"
+        style="margin-top:7px;font-weight:bold;color:#58e38b;"
+      >
         ● Checking Firebase...
-
       </div>
 
     </div>
@@ -1051,49 +1073,65 @@ button{
   </div>
 
 </div>
+
 
 <!-- NAVIGATION -->
 <div class="nav">
 
   <div class="navInner">
 
-    <button class="navBtn active"
-            onclick="showPage('homePage',this)">
+
+    <button
+      class="navBtn active"
+      onclick="showPage('homePage',this)"
+    >
 
       <span>⛏️</span>
       Mine
 
     </button>
 
-    <button class="navBtn"
-            onclick="showPage('toolsPage',this)">
+
+    <button
+      class="navBtn"
+      onclick="showPage('toolsPage',this)"
+    >
 
       <span>🛠️</span>
       Tools
 
     </button>
 
-    <button class="navBtn"
-            onclick="showPage('inventoryPage',this)">
+
+    <button
+      class="navBtn"
+      onclick="showPage('inventoryPage',this)"
+    >
 
       <span>🎒</span>
       Inventory
 
     </button>
 
-    <button class="navBtn"
-            onclick="showPage('profilePage',this)">
+
+    <button
+      class="navBtn"
+      onclick="showPage('profilePage',this)"
+    >
 
       <span>👤</span>
       Profile
 
     </button>
 
+
   </div>
 
 </div>
 
+
 <div class="toast" id="toast"></div>
+
 
 <script type="module">
 
@@ -1115,7 +1153,8 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
 
-  apiKey: "AIzaD1kevTH6OW8DF8DKipenOOZA2FqOG5V3JQ",
+  apiKey:
+    "AIzaSyD1kevTH6OW8DF0KipenOOZA2FqOG5V3JQ",
 
   authDomain:
     "ska-kingdom.firebaseapp.com",
@@ -1161,7 +1200,10 @@ if(tg){
 
   }catch(error){
 
-    console.log("Telegram API error",error);
+    console.log(
+      "Telegram API error",
+      error
+    );
 
   }
 
@@ -1174,29 +1216,35 @@ if(tg){
 
 let player = {
 
-  coins: 100,
+  coins:100,
 
-  level: 1,
+  level:1,
 
-  wood: 0,
-  stone: 0,
-  iron: 0,
-  gold: 0,
-  diamond: 0,
-  crystal: 0,
+  wood:0,
+  stone:0,
+  iron:0,
+  gold:0,
+  diamond:0,
+  crystal:0,
 
-  tools: {
+  tools:{
 
     axe:false,
+
     stonePickaxe:false,
+
     ironPickaxe:false,
+
     goldPickaxe:false,
+
     diamondPickaxe:false,
+
     crystalTool:false
 
   },
 
   createdAt:null,
+
   updatedAt:null
 
 };
@@ -1278,7 +1326,8 @@ function hideLoading(){
 
   if(loading){
 
-    loading.style.display="none";
+    loading.style.display =
+      "none";
 
   }
 
@@ -1288,11 +1337,14 @@ function hideLoading(){
 function loadingStatus(text){
 
   const element =
-    document.getElementById("loadingStatus");
+    document.getElementById(
+      "loadingStatus"
+    );
 
   if(element){
 
-    element.textContent=text;
+    element.textContent =
+      text;
 
   }
 
@@ -1308,13 +1360,19 @@ function initFirebase(){
   try{
 
     const app =
-      initializeApp(firebaseConfig);
+      initializeApp(
+        firebaseConfig
+      );
 
     db =
       getFirestore(app);
 
     playerRef =
-      doc(db,"users",playerId);
+      doc(
+        db,
+        "users",
+        playerId
+      );
 
     firebaseOK=true;
 
@@ -1338,4 +1396,4 @@ function initFirebase(){
 
 /* =====================================================
    LOAD PLAYER
-========
+================================
