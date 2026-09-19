@@ -2868,16 +2868,11 @@ async function setupSKAId(){
 
   return skaId;
 
-setupSKAId().then((id) => {
-
-  const skaIdElement =
-    document.getElementById("skaId");
-
-  if(skaIdElement){
-    skaIdElement.textContent = id;
-  }
-
-});}/* =====================================================
+}
+  
+  setupSKAId();
+  
+  /* =====================================================
    REFERRAL LINK
 ===================================================== */
 
