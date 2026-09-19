@@ -983,7 +983,14 @@ button{
 
         -
 
-      </div>
+      </div><div style="margin-top:18px;color:#8d99ad;font-size:13px;">
+  🆔 SKA ID
+</div>
+
+<div id="skaId"
+     style="margin-top:5px;font-size:20px;font-weight:bold;word-break:break-all;">
+  Loading...
+</div>
 
     </div>
 
@@ -2861,7 +2868,16 @@ async function setupSKAId(){
 
   return skaId;
 
-}/* =====================================================
+setupSKAId().then((id) => {
+
+  const skaIdElement =
+    document.getElementById("skaId");
+
+  if(skaIdElement){
+    skaIdElement.textContent = id;
+  }
+
+});}/* =====================================================
    REFERRAL LINK
 ===================================================== */
 
