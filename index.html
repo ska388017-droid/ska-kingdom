@@ -2869,9 +2869,16 @@ async function setupSKAId(){
   return skaId;
 
 }
-  
-  setupSKAId();
-  
+  setupSKAId().then((id) => {
+
+  const skaIdElement =
+    document.getElementById("skaId");
+
+  if(skaIdElement){
+    skaIdElement.textContent = id;
+  }
+
+});
   /* =====================================================
    REFERRAL LINK
 ===================================================== */
