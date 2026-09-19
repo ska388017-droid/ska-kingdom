@@ -2960,7 +2960,32 @@ window.shareReferralLink = function(){
 };
 
 
-setupReferralLink();</script>
+
+ /* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+window.showPage = function(pageId, button){
+
+  document.querySelectorAll(".page").forEach(function(page){
+    page.classList.remove("active");
+  });
+
+  const page = document.getElementById(pageId);
+
+  if(page){
+    page.classList.add("active");
+  }
+
+  document.querySelectorAll(".navBtn").forEach(function(btn){
+    btn.classList.remove("active");
+  });
+
+  if(button){
+    button.classList.add("active");
+  }
+
+}; setupReferralLink();</script>
 
 </body>
 </html>
