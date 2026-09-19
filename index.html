@@ -125,6 +125,42 @@ button{
   border-radius:18px;
   padding:16px;
   margin-bottom:12px;
+}.miningGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.miningGrid .mineCard{
+  margin-bottom:0;
+  padding:12px;
+}
+
+.miningGrid .resourceInfo{
+  display:block;
+}
+
+.miningGrid .resourceIcon{
+  width:58px;
+  height:58px;
+  margin-bottom:8px;
+}
+
+.miningGrid .resourceInfo > div:last-child{
+  margin-top:5px;
+}
+
+.miningGrid .resourceName{
+  font-size:16px;
+}
+
+.miningGrid .resourceAmount{
+  font-size:12px;
+}
+
+.miningGrid .mineBtn{
+  font-size:13px;
+  padding:11px 6px;
 }
 
 .resourceTop{
@@ -432,7 +468,7 @@ button{
     </div>
 
 
-    <!-- WOOD -->
+    <div class="miningGrid"><!-- WOOD -->
     <div class="mineCard">
 
       <div class="resourceTop">
