@@ -2827,7 +2827,41 @@ setTimeout(()=>{
 
 },9000);
 
+
 /* =====================================================
+   UNIQUE SKA ID
+===================================================== */
+
+async function setupSKAId(){
+
+  const userRef = doc(db, "users", playerId);
+
+  const userSnap = await getDoc(userRef);
+
+  if(userSnap.exists()){
+
+    const data = userSnap.data();
+
+    if(data.skaId){
+      return data.skaId;
+    }
+
+  }
+
+  const skaId =
+    Math.floor(10000000 + Math.random() * 90000000).toString();
+
+  await setDoc(
+    userRef,
+    {
+      skaId: skaId
+    },
+    { merge: true }
+  );
+
+  return skaId;
+
+}/* =====================================================
    REFERRAL LINK
 ===================================================== */
 
