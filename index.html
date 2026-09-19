@@ -2827,7 +2827,88 @@ setTimeout(()=>{
 
 },9000);
 
-</script>
+/* =====================================================
+   REFERRAL LINK
+===================================================== */
+
+function setupReferralLink(){
+
+  const referralLink =
+    document.getElementById("referralLink");
+
+  if(!referralLink) return;
+
+  const link =
+    "https://t.me/SKA_KingdomBot?start=ref_" + playerId;
+
+  referralLink.textContent = link;
+
+}
+
+
+window.copyReferralLink = async function(){
+
+  const referralLink =
+    document.getElementById("referralLink");
+
+  if(!referralLink) return;
+
+  const link =
+    referralLink.textContent;
+
+  try{
+
+    await navigator.clipboard.writeText(link);
+
+    showToast("Referral link copied!");
+
+  }catch(error){
+
+    showToast("Copy failed");
+
+  }
+
+};
+
+
+window.shareReferralLink = function(){
+
+  const referralLink =
+    document.getElementById("referralLink");
+
+  if(!referralLink) return;
+
+  const link =
+    referralLink.textContent;
+
+  const text =
+    "Join me in SKA Kingdom! ⛏️👑";
+
+  if(tg && tg.openTelegramLink){
+
+    tg.openTelegramLink(
+      "https://t.me/share/url?url=" +
+      encodeURIComponent(link) +
+      "&text=" +
+      encodeURIComponent(text)
+    );
+
+  }else{
+
+    window.open(
+      "https://t.me/share/url?url=" +
+      encodeURIComponent(link) +
+      "&text=" +
+      encodeURIComponent(text),
+      "_blank"
+    );
+
+  }
+
+};
+
+
+setupReferralLink();</script>
 
 </body>
 </html>
